@@ -81,7 +81,7 @@ public class MyRecyclerViewAdapter extends RecyclerView
         holder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!holder.subj_code.equals("Free")) {
+                if (!holder.subj_code.getText().equals("Free")) {
                     if (holder.subj_lecturer.getVisibility() == View.GONE) {
                         holder.subj_lecturer.setVisibility(View.VISIBLE);
                         holder.subj_name.setMaxLines(2);
