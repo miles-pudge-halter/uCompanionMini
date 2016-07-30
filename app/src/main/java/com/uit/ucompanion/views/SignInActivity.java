@@ -1,5 +1,6 @@
 package com.uit.ucompanion.views;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
@@ -48,6 +49,8 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
     FirebaseUser user;
     FirebaseDatabase database;
     DatabaseReference reference;
+
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,6 +126,15 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
         }
     }
 
+    @Override
+    public void finish() {
+        super.finish();
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
     private void signIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -134,6 +146,7 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
             if (acct.getEmail().indexOf("@uit.edu.mm") == -1) {
                 signOut();
             } else {
+                progressDialog = ProgressDialog.show(this, "Signing In", "Please wait...");
                 firebaseAuthWithGoogle(acct);
             }
         } else {
@@ -159,8 +172,11 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        progressDialog.dismiss();
+
                         if (!task.isSuccessful()) {
-                            Toast.makeText(SignInActivity.this, "Authentication failed.",
+                            Toast.makeText(SignInActivity.this, "No internet connection. Please try again.",
                                     Toast.LENGTH_SHORT).show();
                         } else {
                             if (user != null) {

@@ -9,6 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,6 +36,8 @@ public class LectureSlidesFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private CustomAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private ProgressBar progressBar;
+    private TextView tvMsg;
 
     FirebaseDatabase database;
     DatabaseReference reference;
@@ -58,6 +63,8 @@ public class LectureSlidesFragment extends Fragment {
         tinyDB = new TinyDB(getContext());
 
         mRecyclerView = (RecyclerView) v.findViewById(R.id.my_recycler_view);
+        progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
+        tvMsg = (TextView) v.findViewById(R.id.tvMsg);
 
         mRecyclerView.setHasFixedSize(true);
 
@@ -77,14 +84,27 @@ public class LectureSlidesFragment extends Fragment {
         }
 
         reference.addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                lectures = new Lectures[(int) dataSnapshot.getChildrenCount()];
+
+                progressBar.setVisibility(View.GONE);
+
+                int count = (int) dataSnapshot.getChildrenCount();
+
+                if (count == 0) {
+                    tvMsg.setVisibility(View.VISIBLE);
+                    tvMsg.setText("No Files Available!");
+                } else {
+                    mRecyclerView.setVisibility(View.VISIBLE);
+                }
+
+                lectures = new Lectures[count];
 
                 int i = 0;
 
                 for (DataSnapshot lectureSnapShot : dataSnapshot.getChildren()) {
-                    lectures[(int) dataSnapshot.getChildrenCount() - i - 1] = lectureSnapShot.getValue(Lectures.class);
+                    lectures[count - i - 1] = lectureSnapShot.getValue(Lectures.class);
                     i++;
                 }
 
@@ -94,7 +114,9 @@ public class LectureSlidesFragment extends Fragment {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                progressBar.setVisibility(View.GONE);
+                tvMsg.setVisibility(View.VISIBLE);
+                tvMsg.setText("No internet connection.");
             }
         });
 

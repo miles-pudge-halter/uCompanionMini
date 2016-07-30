@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity
 
     DatabaseReference databaseReference;
     FirebaseDatabase database;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
 
     TinyDB tinyDB;
 
@@ -64,12 +66,19 @@ public class MainActivity extends AppCompatActivity
 
         }
 
+        database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference();
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         tinyDB = new TinyDB(getApplicationContext());
+
+//        putDataToDB();
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -106,8 +115,9 @@ public class MainActivity extends AppCompatActivity
                 if (fragment != null && fragment instanceof LectureSlidesFragment) {
                     LectureSlidesFragment lsf = new LectureSlidesFragment(sub);
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, lsf).commit();
-                } else {
-
+                } else if (fragment != null && fragment instanceof AssignmentsFragment) {
+                    AssignmentsFragment af = new AssignmentsFragment(sub);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, af).commit();
                 }
             }
 
@@ -132,7 +142,12 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+//            Intent intent = new Intent(Intent.ACTION_MAIN);
+//            intent.addCategory(Intent.CATEGORY_HOME);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            startActivity(intent);
+//            super.onBackPressed();
+            finish();
         }
     }
 
@@ -197,6 +212,15 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     private void declare() {
@@ -272,5 +296,22 @@ public class MainActivity extends AppCompatActivity
         tvUsername.setText(username + " (" + classYear + ")");
         tvEmail.setText(email);
 
+    }
+
+    private void putDataToDB() {
+//        Intent i = getIntent();
+//        if (i != null) {
+//            boolean putData = i.getBooleanExtra("putData", false);
+//            System.out.println("putData : " + putData);
+//            if (putData) {
+//                String keyYear = tinyDB.getString("year");
+//                String keyMajor = tinyDB.getString("major");
+//                String keySection = tinyDB.getString("section");
+//
+//                databaseReference.child("users").child(user.getUid()).child("year").setValue(keyYear);
+//                databaseReference.child("users").child(user.getUid()).child("major").setValue(keyMajor);
+//                databaseReference.child("users").child(user.getUid()).child("section").setValue(keySection);
+//            }
+//        }
     }
 }

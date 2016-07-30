@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.uit.ucompanion.R;
 import com.uit.ucompanion.classes.TinyDB;
+import com.uit.ucompanion.views.DownloadActivity;
 import com.uit.ucompanion.views.MainActivity;
 
 import java.util.ArrayList;
@@ -30,9 +31,17 @@ public class Fragment2 extends Fragment {
     private String year, major, section, keyYear, keyMajor, keySection;
     private List<String> major1, major2;
 
+    FirebaseDatabase database;
+    DatabaseReference ref;
+
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.page2, container, false);
+
+        database = FirebaseDatabase.getInstance();
+
+        ref = database.getReference();
+
         keyYear = "";
         keySection = "";
         keyMajor = "";
@@ -264,20 +273,19 @@ public class Fragment2 extends Fragment {
                 tinyDb.putString("major", keyMajor);
                 tinyDb.putString("section", keySection);
 
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-
-                DatabaseReference ref = database.getReference();
-
                 ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("year").setValue(keyYear);
                 ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("major").setValue(keyMajor);
                 ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("section").setValue(keySection);
 
                 getActivity().finish();
                 Intent intent = new Intent(getContext(), MainActivity.class);
+                intent.putExtra("putData", true);
                 startActivity(intent);
+                return;
 
             }
         });
+
         return v;
     }
 

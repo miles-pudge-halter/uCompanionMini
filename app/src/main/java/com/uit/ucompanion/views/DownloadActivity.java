@@ -73,8 +73,11 @@ public class DownloadActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        finish();
+    }
 
-        finish();
-        finish();
+    @Override
+    public void finish() {
+        super.finish();
     }
 }
