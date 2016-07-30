@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/time_table"
+            android:icon="@drawable/ic_timetable"
+            android:title="Timetable" />
+        <item
+            android:id="@+id/events"
+            android:icon="@drawable/ic_events"
+            android:title="Events" />
+        <item
+            android:id="@+id/slides"
+            android:icon="@drawable/ic_lectures"
+            android:title="Lecture Slides" />
+        <item
+            android:id="@+id/assignments"
+            android:icon="@drawable/ic_assignments"
+            android:title="Assignments" />
+    </group>
+
+    <item android:title="Options">
+        <menu>
+            <item
+                android:id="@+id/log_out"
+                android:icon="@drawable/ic_logout"
+                android:title="Log Out" />
+        </menu>
+    </item>
+
+</menu>

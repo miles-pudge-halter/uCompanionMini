@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">UCompanion</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="drawer_titles">
+        <item>Timetable</item>
+        <item>Events \u0026 Notifications</item>
+    </string-array>
+    <string-array name="year_arrays">
+        <item>Select your year</item>
+        <item>First Year</item>
+        <item>Second Year</item>
+        <item>Third Year</item>
+        <item>Fourth Year</item>
+        <item>Fifth Year</item>
+    </string-array>
+    <string-array name="section_arrays">
+        <item>Select your section</item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+    </string-array>
+
+    <string-array name="first">
+        <item>Myan</item>
+        <item>Eng</item>
+        <item>Phy</item>
+        <item>101</item>
+        <item>102</item>
+        <item>103</item>
+        <item>104</item>
+    </string-array>
+
+    <string-array name="second">
+        <item>Eng</item>
+        <item>201</item>
+        <item>202</item>
+        <item>203</item>
+        <item>204</item>
+        <item>205</item>
+        <item>206</item>
+    </string-array>
+
+    <string-array name="third">
+        <item>Eng</item>
+        <item>301</item>
+        <item>302</item>
+        <item>303</item>
+        <item>304</item>
+        <item>305</item>
+        <item>306</item>
+    </string-array>
+
+    <string-array name="fourth">
+        <item>Eng</item>
+        <item>401</item>
+        <item>402</item>
+        <item>403</item>
+        <item>404</item>
+        <item>405</item>
+        <item>406</item>
+    </string-array>
+
+    <string name="timetable">Timetable</string>
+    <string name="year_prompt">Select Year</string>
+    <string name="major_prompt">Select Major</string>
+</resources>

@@ -1,0 +1,895 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x000000005bf14289, pid=10236, tid=6596
+#
+# JRE version: Java(TM) SE Runtime Environment (7.0_67-b01) (build 1.7.0_67-b01)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (24.65-b04 mixed mode windows-amd64 compressed oops)
+# Problematic frame:
+# V  [jvm.dll+0xa4289]
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000000a208000):  JavaThread "pool-2-thread-1" [_thread_in_vm, id=6596, stack(0x000000000a570000,0x000000000a670000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x0000000000400008
+
+Registers:
+RAX=0x0000000000400000, RBX=0x0000000000000000, RCX=0x00000000087fa370, RDX=0x00000000087fa318
+RSP=0x000000000a66e5b0, RBP=0x00000000087fa320, RSI=0x00000000087fa360, RDI=0x00000000087fa368
+R8 =0x00000000bb274d58, R9 =0x000000000000007c, R10=0x00000000bb274d58, R11=0x00000000087fa328
+R12=0x000000000a208000, R13=0x000000000000001a, R14=0x00000000028a92b0, R15=0x00000000028aa610
+RIP=0x000000005bf14289, EFLAGS=0x0000000000010202
+
+Top of Stack: (sp=0x000000000a66e5b0)
+0x000000000a66e5b0:   0000000000000000 0000000000000000
+0x000000000a66e5c0:   0000000000000100 0000000000000000
+0x000000000a66e5d0:   0000000000000000 000000000a3fef50
+0x000000000a66e5e0:   0000000002750000 000000005bef00ff
+0x000000000a66e5f0:   0000000000000000 00007ffcac71a939
+0x000000000a66e600:   00000000000000b6 00000000087fb600
+0x000000000a66e610:   00000000bb2764bf 0000000000000000
+0x000000000a66e620:   00000000087fa318 000000000a208000
+0x000000000a66e630:   000000000a66e719 000000005bf144fc
+0x000000000a66e640:   000000000a66e6e0 00000000087fa318
+0x000000000a66e650:   00000000087fa320 0000000000000000
+0x000000000a66e660:   000000000a208000 000000000a66e7a8
+0x000000000a66e670:   00000000087fa318 000000005bf0ecab
+0x000000000a66e680:   00000000028aa610 000000005c031584
+0x000000000a66e690:   000000000a208000 000000000af8ee00
+0x000000000a66e6a0:   00000000000000b6 000000000a208000 
+
+Instructions: (pc=0x000000005bf14289)
+0x000000005bf14269:   24 08 0f 85 82 00 00 00 48 8b 94 24 98 00 00 00
+0x000000005bf14279:   48 85 d2 74 44 38 1d 14 fd 6a 00 48 8b 02 74 15
+0x000000005bf14289:   8b 40 08 8b 0d 26 06 65 00 48 d3 e0 48 03 05 14
+0x000000005bf14299:   06 65 00 eb 04 48 8b 40 08 48 85 c0 74 1b 49 8b 
+
+
+Register to memory mapping:
+
+RAX=0x0000000000400000 is an unknown value
+RBX=0x0000000000000000 is an unknown value
+RCX=0x00000000087fa370 is an unknown value
+RDX=0x00000000087fa318 is an unknown value
+RSP=0x000000000a66e5b0 is pointing into the stack for thread: 0x000000000a208000
+RBP=0x00000000087fa320 is an unknown value
+RSI=0x00000000087fa360 is an unknown value
+RDI=0x00000000087fa368 is an unknown value
+R8 =0x00000000bb274d58 is an oop
+{constant pool} 
+ - klass: {other class}
+ - holder: 0x00000000bb2785c0
+ - cache: 0x00000000bb278860
+ -   1 :  : klass_index=8 name_and_type_index=207
+ -   2 :  : klass_index=8 name_and_type_index=208
+ -   3 :  : klass_index=8 name_and_type_index=209
+ -   4 :  : klass_index=8 name_and_type_index=210
+ -   5 :  : klass_index=8 name_and_type_index=211
+ -   6 :  : klass_index=29 name_and_type_index=212
+ -   7 :  : klass_index=76 name_and_type_index=213
+ -   8 :  : 'com/android/dx/rop/code/RegisterSpec' {0xbb2785c0}
+ -   9 :  : klass_index=29 name_and_type_index=215
+ -  10 :  : klass_index=76 name_and_type_index=216
+ -  11 :  : klass_index=8 name_and_type_index=217
+ -  12 :  : 'java/lang/NullPointerException'
+ -  13 :  : "local  == null" {0xeccc8320}
+ -  14 :  : klass_index=12 name_and_type_index=220
+ -  15 :  : 'java/lang/StringBuilder'
+ -  16 :  : klass_index=15 name_and_type_index=222
+ -  17 :  : "v" {0xecc3a4f0}
+ -  18 :  : klass_index=15 name_and_type_index=224
+ -  19 :  : klass_index=15 name_and_type_index=225
+ -  20 :  : klass_index=15 name_and_type_index=226
+ -  21 :  : klass_index=79 name_and_type_index=222
+ -  22 :  : 'java/lang/IllegalArgumentException'
+ -  23 :  : "reg < 0" {0xeccc82e8}
+ -  24 :  : klass_index=22 name_and_type_index=220
+ -  25 :  : "type == null" {0xecc71fd0}
+ -  26 :  : klass_index=8 name_and_type_index=230
+ -  27 :  : klass_index=8 name_and_type_index=231
+ -  28 :  : klass_index=8 name_and_type_index=232
+ -  29 :  : 'com/android/dx/rop/code/RegisterSpec$ForComparison' {0xbb279be8}
+ -  30 :  : klass_index=29 name_and_type_index=234
+ -  31 :  : klass_index=29 name_and_type_index=235
+ -  32 :  : klass_index=29 name_and_type_index=236
+ -  33 :  : klass_index=8 name_and_type_index=237
+ -  34 :  : klass_index=80 name_and_type_index=238
+ -  35 :  : klass_index=59 name_and_type_index=239
+ -  36 :  : klass_index=240 name_and_type_index=239
+ -  37 :  : klass_index=79 name_and_type_index=239
+ -  38 :  : klass_index=59 name_and_type_index=241
+ -  39 :  : klass_index=240 name_and_type_index=242
+ -  40 :  : klass_index=240 name_and_type_index=243
+ -  41 :  : klass_index=79 name_and_type_index=243
+ -  42 :  : klass_index=8 name_and_type_index=244
+ -  43 :  : klass_index=80 name_and_type_index=245
+ -  44 :  : klass_index=80 name_and_type_index=246
+ -  45 :  : klass_index=80 name_and_type_index=247
+ -  46 :  : klass_index=8 name_and_type_index=248
+ -  47 :  : klass_index=59 name_and_type_index=248
+ -  48 :  : klass_index=59 name_and_type_index=249
+ -  49 :  : klass_index=59 name_and_type_index=250
+ -  50 :  : klass_index=8 name_and_type_index=251
+ -  51 :  : klass_index=8 name_and_type_index=252
+ -  52 :  : klass_index=8 name_and_type_index=253
+ -  53 :  : klass_index=8 name_and_type_index=238
+ -  54 :  : klass_index=8 name_and_type_index=254
+ -  55 :  : klass_index=8 name_and_type_index=255
+ -  56 :  : klass_index=8 name_and_type_index=256
+ -  57 :  : klass_index=8 name_and_type_index=257
+ -  58 :  : klass_index=8 name_and_type_index=258
+ -  59 :  : 'com/android/dx/rop/type/Type' {0xbb1b8270}
+ -  60 :  : klass_index=59 name_and_type_index=260
+ -  61 :  : klass_index=59 name_and_type_index=261
+ -  62 :  : 'java/lang/StringBuffer'
+ -  63 :  : klass_index=62 name_and_type_index=263
+ -  64 :  : klass_index=8 name_and_type_index=264
+ -  65 :  : klass_index=62 name_and_type_index=265
+ -  66 :  : ":" {0xecbf8de0}
+ -  67 :  : klass_index=240 name_and_type_index=267
+ -  68 :  : klass_index=62 name_and_type_index=268
+ -  69 :  : "=" {0xecc693c0}
+ -  70 :  : 'com/android/dx/rop/cst/CstString'
+ -  71 :  : klass_index=70 name_and_type_index=271
+ -  72 :  : 'com/android/dx/rop/cst/Constant'
+ -  73 :  : klass_index=80 name_and_type_index=273
+ -  74 :  : klass_index=62 name_and_type_index=226
+ -  75 :  : klass_index=8 name_and_type_index=274
+ -  76 :  : 'java/util/HashMap' {0xbaf0e0a0}
+ -  77 :  : klass_index=76 name_and_type_index=263
+ -  78 :  : klass_index=29 name_and_type_index=276
+ -  79 :  : 'java/lang/Object' {0xbae02bb0}
+ -  80 :  : 'com/android/dx/rop/type/TypeBearer' {0xbb0dd778}
+ -  81 :  : 'com/android/dx/util/ToHuman'
+ -  82 :  : 'java/lang/Comparable'
+ -  83 :  : 'com/android/dx/rop/code/RegisterSpec$1'
+ -  84 :  : ''
+ -  85 :  : 'InnerClasses'
+ -  86 :  : 'ForComparison'
+ -  87 :  : 'PREFIX'
+ -  88 :  : 'Ljava/lang/String;'
+ -  89 :  : 'ConstantValue'
+ -  90 :  : 'theInterns'
+ -  91 :  : 'Ljava/util/HashMap;'
+ -  92 :  : 'Signature'
+ -  93 :  : 'Ljava/util/HashMap<Ljava/lang/Object;Lcom/android/dx/rop/code/RegisterSpec;>;'
+ -  94 :  : 'theInterningItem'
+ -  95 :  : 'Lcom/android/dx/rop/code/RegisterSpec$ForComparison;'
+ -  96 :  : 'reg'
+ -  97 :  : 'I'
+ -  98 :  : 'type'
+ -  99 :  : 'Lcom/android/dx/rop/type/TypeBearer;'
+ - 100 :  : 'local'
+ - 101 :  : 'Lcom/android/dx/rop/code/LocalItem;'
+ - 102 :  : 'intern'
+ - 103 :  : '(ILcom/android/dx/rop/type/TypeBearer;Lcom/android/dx/rop/code/LocalItem;)Lcom/android/dx/rop/code/RegisterSpec;'
+ - 104 :  : 'Code'
+ - 105 :  : 'LineNumberTable'
+ - 106 :  : 'LocalVariableTable'
+ - 107 :  : 'found'
+ - 108 :  : 'Lcom/android/dx/rop/code/RegisterSpec;'
+ - 109 :  : 'StackMapTable'
+ - 110 :  : 'java/lang/Object'
+ - 111 :  : 'com/android/dx/rop/code/RegisterSpec'
+ - 112 :  : 'com/android/dx/rop/type/TypeBearer'
+ - 113 :  : 'com/android/dx/rop/code/LocalItem'
+ - 114 :  : 'java/lang/Throwable'
+ - 115 :  : 'make'
+ - 116 :  : '(ILcom/android/dx/rop/type/TypeBearer;)Lcom/android/dx/rop/code/RegisterSpec;'
+ - 117 :  : 'makeLocalOptional'
+ - 118 :  : 'regString'
+ - 119 :  : '(I)Ljava/lang/String;'
+ - 120 :  : '<init>'
+ - 121 :  : '(ILcom/android/dx/rop/type/TypeBearer;Lcom/android/dx/rop/code/LocalItem;)V'
+ - 122 :  : 'this'
+ - 123 :  : 'equals'
+ - 124 :  : '(Ljava/lang/Object;)Z'
+ - 125 :  : 'fc'
+ - 126 :  : 'other'
+ - 127 :  : 'Ljava/lang/Object;'
+ - 128 :  : 'spec'
+ - 129 :  : 'equalsUsingSimpleType'
+ - 130 :  : '(Lcom/android/dx/rop/code/RegisterSpec;)Z'
+ - 131 :  : 'matchesVariable'
+ - 132 :  : '(ILcom/android/dx/rop/type/TypeBearer;Lcom/android/dx/rop/code/LocalItem;)Z'
+ - 133 :  : 'compareTo'
+ - 134 :  : '(Lcom/android/dx/rop/code/RegisterSpec;)I'
+ - 135 :  : 'compare'
+ - 136 :  : 'hashCode'
+ - 137 :  : '()I'
+ - 138 :  : 'hashCodeOf'
+ - 139 :  : '(ILcom/android/dx/rop/type/TypeBearer;Lcom/android/dx/rop/code/LocalItem;)I'
+ - 140 :  : 'hash'
+ - 141 :  : 'toString'
+ - 142 :  : '()Ljava/lang/String;'
+ - 143 :  : 'toHuman'
+ - 144 :  : 'getType'
+ - 145 :  : '()Lcom/android/dx/rop/type/Type;'
+ - 146 :  : 'getFrameType'
+ - 147 :  : '()Lcom/android/dx/rop/type/TypeBearer;'
+ - 148 :  : 'getBasicType'
+ - 149 :  : 'getBasicFrameType'
+ - 150 :  : 'isConstant'
+ - 151 :  : '()Z'
+ - 152 :  : 'getReg'
+ - 153 :  : 'getTypeBearer'
+ - 154 :  : 'getLocalItem'
+ - 155 :  : '()Lcom/android/dx/rop/code/LocalItem;'
+ - 156 :  : 'getNextReg'
+ - 157 :  : 'getCategory'
+ - 158 :  : 'isCategory1'
+ - 159 :  : 'isCategory2'
+ - 160 :  : 'intersect'
+ - 161 :  : '(Lcom/android/dx/rop/code/RegisterSpec;Z)Lcom/android/dx/rop/code/RegisterSpec;'
+ - 162 :  : 'localPrimary'
+ - 163 :  : 'Z'
+ - 164 :  : 'resultLocal'
+ - 165 :  : 'sameName'
+ - 166 :  : 'thisType'
+ - 167 :  : 'Lcom/android/dx/rop/type/Type;'
+ - 168 :  : 'otherType'
+ - 169 :  : 'resultTypeBearer'
+ - 170 :  : 'com/android/dx/rop/type/Type'
+ - 171 :  : 'withReg'
+ - 172 :  : '(I)Lcom/android/dx/rop/code/RegisterSpec;'
+ - 173 :  : 'newReg'
+ - 174 :  : 'withType'
+ - 175 :  : '(Lcom/android/dx/rop/type/TypeBearer;)Lcom/android/dx/rop/code/RegisterSpec;'
+ - 176 :  : 'newType'
+ - 177 :  : 'withOffset'
+ - 178 :  : 'delta'
+ - 179 :  : 'withSimpleType'
+ - 180 :  : '()Lcom/android/dx/rop/code/RegisterSpec;'
+ - 181 :  : 'orig'
+ - 182 :  : 'withLocalItem'
+ - 183 :  : '(Lcom/android/dx/rop/code/LocalItem;)Lcom/android/dx/rop/code/RegisterSpec;'
+ - 184 :  : 'isEvenRegister'
+ - 185 :  : 'toString0'
+ - 186 :  : '(Z)Ljava/lang/String;'
+ - 187 :  : 'human'
+ - 188 :  : 'sb'
+ - 189 :  : 'Ljava/lang/StringBuffer;'
+ - 190 :  : 'justType'
+ - 191 :  : 'java/lang/StringBuffer'
+ - 192 :  : '(Ljava/lang/Object;)I'
+ - 193 :  : '(ILcom/android/dx/rop/type/TypeBearer;Lcom/android/dx/rop/code/LocalItem;Lcom/android/dx/rop/code/RegisterSpec$1;)V'
+ - 194 :  : 'x0'
+ - 195 :  : 'x1'
+ - 196 :  : 'x2'
+ - 197 :  : 'x3'
+ - 198 :  : 'Lcom/android/dx/rop/code/RegisterSpec$1;'
+ - 199 :  : 'access$500'
+ - 200 :  : '(Lcom/android/dx/rop/code/RegisterSpec;ILcom/android/dx/rop/type/TypeBearer;Lcom/android/dx/rop/code/LocalItem;)Z'
+ - 201 :  : 'access$600'
+ - 202 :  : '<clinit>'
+ - 203 :  : '()V'
+ - 204 :  : 'Ljava/lang/Object;Lcom/android/dx/rop/type/TypeBearer;Lcom/android/dx/util/ToHuman;Ljava/lang/Comparable<Lcom/android/dx/rop/code/RegisterSpec;>;'
+ - 205 :  : 'SourceFile'
+ - 206 :  : 'RegisterSpec.java'
+ - 207 :  : name_index=138 signature_index=139
+ - 208 :  : name_index=123 signature_index=132
+ - 209 :  : name_index=120 signature_index=121
+ - 210 :  : name_index=90 signature_index=91
+ - 211 :  : name_index=94 signature_index=95
+ - 212 :  : name_index=284 signature_index=121
+ - 213 :  : name_index=285 signature_index=286
+ - 214 :  : 'com/android/dx/rop/code/RegisterSpec'
+ - 215 :  : name_index=287 signature_index=180
+ - 216 :  : name_index=288 signature_index=289
+ - 217 :  : name_index=102 signature_index=103
+ - 218 :  : 'java/lang/NullPointerException'
+ - 219 :  : 'local  == null'
+ - 220 :  : name_index=120 signature_index=290
+ - 221 :  : 'java/lang/StringBuilder'
+ - 222 :  : name_index=120 signature_index=203
+ - 223 :  : 'v'
+ - 224 :  : name_index=291 signature_index=292
+ - 225 :  : name_index=291 signature_index=293
+ - 226 :  : name_index=141 signature_index=142
+ - 227 :  : 'java/lang/IllegalArgumentException'
+ - 228 :  : 'reg < 0'
+ - 229 :  : 'type == null'
+ - 230 :  : name_index=96 signature_index=97
+ - 231 :  : name_index=98 signature_index=99
+ - 232 :  : name_index=100 signature_index=101
+ - 233 :  : 'com/android/dx/rop/code/RegisterSpec$ForComparison'
+ - 234 :  : name_index=294 signature_index=295
+ - 235 :  : name_index=296 signature_index=297
+ - 236 :  : name_index=298 signature_index=299
+ - 237 :  : name_index=131 signature_index=130
+ - 238 :  : name_index=144 signature_index=145
+ - 239 :  : name_index=123 signature_index=124
+ - 240 :  : 'com/android/dx/rop/code/LocalItem' {0xbb379190}
+ - 241 :  : name_index=133 signature_index=300
+ - 242 :  : name_index=133 signature_index=301
+ - 243 :  : name_index=136 signature_index=137
+ - 244 :  : name_index=185 signature_index=186
+ - 245 :  : name_index=146 signature_index=147
+ - 246 :  : name_index=148 signature_index=137
+ - 247 :  : name_index=149 signature_index=137
+ - 248 :  : name_index=157 signature_index=137
+ - 249 :  : name_index=158 signature_index=151
+ - 250 :  : name_index=159 signature_index=151
+ - 251 :  : name_index=118 signature_index=119
+ - 252 :  : name_index=152 signature_index=137
+ - 253 :  : name_index=154 signature_index=155
+ - 254 :  : name_index=153 signature_index=147
+ - 255 :  : name_index=115 signature_index=116
+ - 256 :  : name_index=115 signature_index=103
+ - 257 :  : name_index=117 signature_index=103
+ - 258 :  : name_index=171 signature_index=172
+ - 259 :  : 'com/android/dx/rop/type/Type'
+ - 260 :  : name_index=302 signature_index=151
+ - 261 :  : name_index=303 signature_index=145
+ - 262 :  : 'java/lang/StringBuffer'
+ - 263 :  : name_index=120 signature_index=304
+ - 264 :  : name_index=118 signature_index=142
+ - 265 :  : name_index=291 signature_index=305
+ - 266 :  : ':'
+ - 267 :  : name_index=141 signature_index=142
+ - 268 :  : name_index=291 signature_index=306
+ - 269 :  : '='
+ - 270 :  : 'com/android/dx/rop/cst/CstString'
+ - 271 :  : name_index=307 signature_index=142
+ - 272 :  : 'com/android/dx/rop/cst/Constant'
+ - 273 :  : name_index=143 signature_index=142
+ - 274 :  : name_index=133 signature_index=134
+ - 275 :  : 'java/util/HashMap'
+ - 276 :  : name_index=120 signature_index=308
+ - 277 :  : 'java/lang/Object'
+ - 278 :  : 'com/android/dx/rop/type/TypeBearer'
+ - 279 :  : 'com/android/dx/util/ToHuman'
+ - 280 :  : 'java/lang/Comparable'
+ - 281 :  : 'com/android/dx/rop/code/RegisterSpec$1'
+ - 282 :  : 'com/android/dx/rop/code/LocalItem'
+ - 283 :  : 'java/lang/Throwable'
+ - 284 :  : 'set'
+ - 285 :  : 'get'
+ - 286 :  : '(Ljava/lang/Object;)Ljava/lang/Object;'
+ - 287 :  : 'toRegisterSpec'
+ - 288 :  : 'put'
+ - 289 :  : '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;'
+ - 290 :  : '(Ljava/lang/String;)V'
+ - 291 :  : 'append'
+ - 292 :  : '(Ljava/lang/String;)Ljava/lang/StringBuilder;'
+ - 293 :  : '(I)Ljava/lang/StringBuilder;'
+ - 294 :  : 'access$100'
+ - 295 :  : '(Lcom/android/dx/rop/code/RegisterSpec$ForComparison;)I'
+ - 296 :  : 'access$200'
+ - 297 :  : '(Lcom/android/dx/rop/code/RegisterSpec$ForComparison;)Lcom/android/dx/rop/type/TypeBearer;'
+ - 298 :  : 'access$300'
+ - 299 :  : '(Lcom/android/dx/rop/code/RegisterSpec$ForComparison;)Lcom/android/dx/rop/code/LocalItem;'
+ - 300 :  : '(Lcom/android/dx/rop/type/Type;)I'
+ - 301 :  : '(Lcom/android/dx/rop/code/LocalItem;)I'
+ - 302 :  : 'isUninitialized'
+ - 303 :  : 'getInitializedType'
+ - 304 :  : '(I)V'
+ - 305 :  : '(Ljava/lang/String;)Ljava/lang/StringBuffer;'
+ - 306 :  : '(Ljava/lang/Object;)Ljava/lang/StringBuffer;'
+ - 307 :  : 'toQuoted'
+ - 308 :  : '(Lcom/android/dx/rop/code/RegisterSpec$1;)V'
+
+R9 =0x000000000000007c is an unknown value
+R10=0x00000000bb274d58 is an oop
+{constant pool} 
+ - klass: {other class}
+ - holder: 0x00000000bb2785c0
+ - cache: 0x00000000bb278860
+ -   1 :  : klass_index=8 name_and_type_index=207
+ -   2 :  : klass_index=8 name_and_type_index=208
+ -   3 :  : klass_index=8 name_and_type_index=209
+ -   4 :  : klass_index=8 name_and_type_index=210
+ -   5 :  : klass_index=8 name_and_type_index=211
+ -   6 :  : klass_index=29 name_and_type_index=212
+ -   7 :  : klass_index=76 name_and_type_index=213
+ -   8 :  : 'com/android/dx/rop/code/RegisterSpec' {0xbb2785c0}
+ -   9 :  : klass_index=29 name_and_type_index=215
+ -  10 :  : klass_index=76 name_and_type_index=216
+ -  11 :  : klass_index=8 name_and_type_index=217
+ -  12 :  : 'java/lang/NullPointerException'
+ -  13 :  : "local  == null" {0xeccc8320}
+ -  14 :  : klass_index=12 name_and_type_index=220
+ -  15 :  : 'java/lang/StringBuilder'
+ -  16 :  : klass_index=15 name_and_type_index=222
+ -  17 :  : "v" {0xecc3a4f0}
+ -  18 :  : klass_index=15 name_and_type_index=224
+ -  19 :  : klass_index=15 name_and_type_index=225
+ -  20 :  : klass_index=15 name_and_type_index=226
+ -  21 :  : klass_index=79 name_and_type_index=222
+ -  22 :  : 'java/lang/IllegalArgumentException'
+ -  23 :  : "reg < 0" {0xeccc82e8}
+ -  24 :  : klass_index=22 name_and_type_index=220
+ -  25 :  : "type == null" {0xecc71fd0}
+ -  26 :  : klass_index=8 name_and_type_index=230
+ -  27 :  : klass_index=8 name_and_type_index=231
+ -  28 :  : klass_index=8 name_and_type_index=232
+ -  29 :  : 'com/android/dx/rop/code/RegisterSpec$ForComparison' {0xbb279be8}
+ -  30 :  : klass_index=29 name_and_type_index=234
+ -  31 :  : klass_index=29 name_and_type_index=235
+ -  32 :  : klass_index=29 name_and_type_index=236
+ -  33 :  : klass_index=8 name_and_type_index=237
+ -  34 :  : klass_index=80 name_and_type_index=238
+ -  35 :  : klass_index=59 name_and_type_index=239
+ -  36 :  : klass_index=240 name_and_type_index=239
+ -  37 :  : klass_index=79 name_and_type_index=239
+ -  38 :  : klass_index=59 name_and_type_index=241
+ -  39 :  : klass_index=240 name_and_type_index=242
+ -  40 :  : klass_index=240 name_and_type_index=243
+ -  41 :  : klass_index=79 name_and_type_index=243
+ -  42 :  : klass_index=8 name_and_type_index=244
+ -  43 :  : klass_index=80 name_and_type_index=245
+ -  44 :  : klass_index=80 name_and_type_index=246
+ -  45 :  : klass_index=80 name_and_type_index=247
+ -  46 :  : klass_index=8 name_and_type_index=248
+ -  47 :  : klass_index=59 name_and_type_index=248
+ -  48 :  : klass_index=59 name_and_type_index=249
+ -  49 :  : klass_index=59 name_and_type_index=250
+ -  50 :  : klass_index=8 name_and_type_index=251
+ -  51 :  : klass_index=8 name_and_type_index=252
+ -  52 :  : klass_index=8 name_and_type_index=253
+ -  53 :  : klass_index=8 name_and_type_index=238
+ -  54 :  : klass_index=8 name_and_type_index=254
+ -  55 :  : klass_index=8 name_and_type_index=255
+ -  56 :  : klass_index=8 name_and_type_index=256
+ -  57 :  : klass_index=8 name_and_type_index=257
+ -  58 :  : klass_index=8 name_and_type_index=258
+ -  59 :  : 'com/android/dx/rop/type/Type' {0xbb1b8270}
+ -  60 :  : klass_index=59 name_and_type_index=260
+ -  61 :  : klass_index=59 name_and_type_index=261
+ -  62 :  : 'java/lang/StringBuffer'
+ -  63 :  : klass_index=62 name_and_type_index=263
+ -  64 :  : klass_index=8 name_and_type_index=264
+ -  65 :  : klass_index=62 name_and_type_index=265
+ -  66 :  : ":" {0xecbf8de0}
+ -  67 :  : klass_index=240 name_and_type_index=267
+ -  68 :  : klass_index=62 name_and_type_index=268
+ -  69 :  : "=" {0xecc693c0}
+ -  70 :  : 'com/android/dx/rop/cst/CstString'
+ -  71 :  : klass_index=70 name_and_type_index=271
+ -  72 :  : 'com/android/dx/rop/cst/Constant'
+ -  73 :  : klass_index=80 name_and_type_index=273
+ -  74 :  : klass_index=62 name_and_type_index=226
+ -  75 :  : klass_index=8 name_and_type_index=274
+ -  76 :  : 'java/util/HashMap' {0xbaf0e0a0}
+ -  77 :  : klass_index=76 name_and_type_index=263
+ -  78 :  : klass_index=29 name_and_type_index=276
+ -  79 :  : 'java/lang/Object' {0xbae02bb0}
+ -  80 :  : 'com/android/dx/rop/type/TypeBearer' {0xbb0dd778}
+ -  81 :  : 'com/android/dx/util/ToHuman'
+ -  82 :  : 'java/lang/Comparable'
+ -  83 :  : 'com/android/dx/rop/code/RegisterSpec$1'
+ -  84 :  : ''
+ -  85 :  : 'InnerClasses'
+ -  86 :  : 'ForComparison'
+ -  87 :  : 'PREFIX'
+ -  88 :  : 'Ljava/lang/String;'
+ -  89 :  : 'ConstantValue'
+ -  90 :  : 'theInterns'
+ -  91 :  : 'Ljava/util/HashMap;'
+ -  92 :  : 'Signature'
+ -  93 :  : 'Ljava/util/HashMap<Ljava/lang/Object;Lcom/android/dx/rop/code/RegisterSpec;>;'
+ -  94 :  : 'theInterningItem'
+ -  95 :  : 'Lcom/android/dx/rop/code/RegisterSpec$ForComparison;'
+ -  96 :  : 'reg'
+ -  97 :  : 'I'
+ -  98 :  : 'type'
+ -  99 :  : 'Lcom/android/dx/rop/type/TypeBearer;'
+ - 100 :  : 'local'
+ - 101 :  : 'Lcom/android/dx/rop/code/LocalItem;'
+ - 102 :  : 'intern'
+ - 103 :  : '(ILcom/android/dx/rop/type/TypeBearer;Lcom/android/dx/rop/code/LocalItem;)Lcom/android/dx/rop/code/RegisterSpec;'
+ - 104 :  : 'Code'
+ - 105 :  : 'LineNumberTable'
+ - 106 :  : 'LocalVariableTable'
+ - 107 :  : 'found'
+ - 108 :  : 'Lcom/android/dx/rop/code/RegisterSpec;'
+ - 109 :  : 'StackMapTable'
+ - 110 :  : 'java/lang/Object'
+ - 111 :  : 'com/android/dx/rop/code/RegisterSpec'
+ - 112 :  : 'com/android/dx/rop/type/TypeBearer'
+ - 113 :  : 'com/android/dx/rop/code/LocalItem'
+ - 114 :  : 'java/lang/Throwable'
+ - 115 :  : 'make'
+ - 116 :  : '(ILcom/android/dx/rop/type/TypeBearer;)Lcom/android/dx/rop/code/RegisterSpec;'
+ - 117 :  : 'makeLocalOptional'
+ - 118 :  : 'regString'
+ - 119 :  : '(I)Ljava/lang/String;'
+ - 120 :  : '<init>'
+ - 121 :  : '(ILcom/android/dx/rop/type/TypeBearer;Lcom/android/dx/rop/code/LocalItem;)V'
+ - 122 :  : 'this'
+ - 123 :  : 'equals'
+ - 124 :  : '(Ljava/lang/Object;)Z'
+ - 125 :  : 'fc'
+ - 126 :  : 'other'
+ - 127 :  : 'Ljava/lang/Object;'
+ - 128 :  : 'spec'
+ - 129 :  : 'equalsUsingSimpleType'
+ - 130 :  : '(Lcom/android/dx/rop/code/RegisterSpec;)Z'
+ - 131 :  : 'matchesVariable'
+ - 132 :  : '(ILcom/android/dx/rop/type/TypeBearer;Lcom/android/dx/rop/code/LocalItem;)Z'
+ - 133 :  : 'compareTo'
+ - 134 :  : '(Lcom/android/dx/rop/code/RegisterSpec;)I'
+ - 135 :  : 'compare'
+ - 136 :  : 'hashCode'
+ - 137 :  : '()I'
+ - 138 :  : 'hashCodeOf'
+ - 139 :  : '(ILcom/android/dx/rop/type/TypeBearer;Lcom/android/dx/rop/code/LocalItem;)I'
+ - 140 :  : 'hash'
+ - 141 :  : 'toString'
+ - 142 :  : '()Ljava/lang/String;'
+ - 143 :  : 'toHuman'
+ - 144 :  : 'getType'
+ - 145 :  : '()Lcom/android/dx/rop/type/Type;'
+ - 146 :  : 'getFrameType'
+ - 147 :  : '()Lcom/android/dx/rop/type/TypeBearer;'
+ - 148 :  : 'getBasicType'
+ - 149 :  : 'getBasicFrameType'
+ - 150 :  : 'isConstant'
+ - 151 :  : '()Z'
+ - 152 :  : 'getReg'
+ - 153 :  : 'getTypeBearer'
+ - 154 :  : 'getLocalItem'
+ - 155 :  : '()Lcom/android/dx/rop/code/LocalItem;'
+ - 156 :  : 'getNextReg'
+ - 157 :  : 'getCategory'
+ - 158 :  : 'isCategory1'
+ - 159 :  : 'isCategory2'
+ - 160 :  : 'intersect'
+ - 161 :  : '(Lcom/android/dx/rop/code/RegisterSpec;Z)Lcom/android/dx/rop/code/RegisterSpec;'
+ - 162 :  : 'localPrimary'
+ - 163 :  : 'Z'
+ - 164 :  : 'resultLocal'
+ - 165 :  : 'sameName'
+ - 166 :  : 'thisType'
+ - 167 :  : 'Lcom/android/dx/rop/type/Type;'
+ - 168 :  : 'otherType'
+ - 169 :  : 'resultTypeBearer'
+ - 170 :  : 'com/android/dx/rop/type/Type'
+ - 171 :  : 'withReg'
+ - 172 :  : '(I)Lcom/android/dx/rop/code/RegisterSpec;'
+ - 173 :  : 'newReg'
+ - 174 :  : 'withType'
+ - 175 :  : '(Lcom/android/dx/rop/type/TypeBearer;)Lcom/android/dx/rop/code/RegisterSpec;'
+ - 176 :  : 'newType'
+ - 177 :  : 'withOffset'
+ - 178 :  : 'delta'
+ - 179 :  : 'withSimpleType'
+ - 180 :  : '()Lcom/android/dx/rop/code/RegisterSpec;'
+ - 181 :  : 'orig'
+ - 182 :  : 'withLocalItem'
+ - 183 :  : '(Lcom/android/dx/rop/code/LocalItem;)Lcom/android/dx/rop/code/RegisterSpec;'
+ - 184 :  : 'isEvenRegister'
+ - 185 :  : 'toString0'
+ - 186 :  : '(Z)Ljava/lang/String;'
+ - 187 :  : 'human'
+ - 188 :  : 'sb'
+ - 189 :  : 'Ljava/lang/StringBuffer;'
+ - 190 :  : 'justType'
+ - 191 :  : 'java/lang/StringBuffer'
+ - 192 :  : '(Ljava/lang/Object;)I'
+ - 193 :  : '(ILcom/android/dx/rop/type/TypeBearer;Lcom/android/dx/rop/code/LocalItem;Lcom/android/dx/rop/code/RegisterSpec$1;)V'
+ - 194 :  : 'x0'
+ - 195 :  : 'x1'
+ - 196 :  : 'x2'
+ - 197 :  : 'x3'
+ - 198 :  : 'Lcom/android/dx/rop/code/RegisterSpec$1;'
+ - 199 :  : 'access$500'
+ - 200 :  : '(Lcom/android/dx/rop/code/RegisterSpec;ILcom/android/dx/rop/type/TypeBearer;Lcom/android/dx/rop/code/LocalItem;)Z'
+ - 201 :  : 'access$600'
+ - 202 :  : '<clinit>'
+ - 203 :  : '()V'
+ - 204 :  : 'Ljava/lang/Object;Lcom/android/dx/rop/type/TypeBearer;Lcom/android/dx/util/ToHuman;Ljava/lang/Comparable<Lcom/android/dx/rop/code/RegisterSpec;>;'
+ - 205 :  : 'SourceFile'
+ - 206 :  : 'RegisterSpec.java'
+ - 207 :  : name_index=138 signature_index=139
+ - 208 :  : name_index=123 signature_index=132
+ - 209 :  : name_index=120 signature_index=121
+ - 210 :  : name_index=90 signature_index=91
+ - 211 :  : name_index=94 signature_index=95
+ - 212 :  : name_index=284 signature_index=121
+ - 213 :  : name_index=285 signature_index=286
+ - 214 :  : 'com/android/dx/rop/code/RegisterSpec'
+ - 215 :  : name_index=287 signature_index=180
+ - 216 :  : name_index=288 signature_index=289
+ - 217 :  : name_index=102 signature_index=103
+ - 218 :  : 'java/lang/NullPointerException'
+ - 219 :  : 'local  == null'
+ - 220 :  : name_index=120 signature_index=290
+ - 221 :  : 'java/lang/StringBuilder'
+ - 222 :  : name_index=120 signature_index=203
+ - 223 :  : 'v'
+ - 224 :  : name_index=291 signature_index=292
+ - 225 :  : name_index=291 signature_index=293
+ - 226 :  : name_index=141 signature_index=142
+ - 227 :  : 'java/lang/IllegalArgumentException'
+ - 228 :  : 'reg < 0'
+ - 229 :  : 'type == null'
+ - 230 :  : name_index=96 signature_index=97
+ - 231 :  : name_index=98 signature_index=99
+ - 232 :  : name_index=100 signature_index=101
+ - 233 :  : 'com/android/dx/rop/code/RegisterSpec$ForComparison'
+ - 234 :  : name_index=294 signature_index=295
+ - 235 :  : name_index=296 signature_index=297
+ - 236 :  : name_index=298 signature_index=299
+ - 237 :  : name_index=131 signature_index=130
+ - 238 :  : name_index=144 signature_index=145
+ - 239 :  : name_index=123 signature_index=124
+ - 240 :  : 'com/android/dx/rop/code/LocalItem' {0xbb379190}
+ - 241 :  : name_index=133 signature_index=300
+ - 242 :  : name_index=133 signature_index=301
+ - 243 :  : name_index=136 signature_index=137
+ - 244 :  : name_index=185 signature_index=186
+ - 245 :  : name_index=146 signature_index=147
+ - 246 :  : name_index=148 signature_index=137
+ - 247 :  : name_index=149 signature_index=137
+ - 248 :  : name_index=157 signature_index=137
+ - 249 :  : name_index=158 signature_index=151
+ - 250 :  : name_index=159 signature_index=151
+ - 251 :  : name_index=118 signature_index=119
+ - 252 :  : name_index=152 signature_index=137
+ - 253 :  : name_index=154 signature_index=155
+ - 254 :  : name_index=153 signature_index=147
+ - 255 :  : name_index=115 signature_index=116
+ - 256 :  : name_index=115 signature_index=103
+ - 257 :  : name_index=117 signature_index=103
+ - 258 :  : name_index=171 signature_index=172
+ - 259 :  : 'com/android/dx/rop/type/Type'
+ - 260 :  : name_index=302 signature_index=151
+ - 261 :  : name_index=303 signature_index=145
+ - 262 :  : 'java/lang/StringBuffer'
+ - 263 :  : name_index=120 signature_index=304
+ - 264 :  : name_index=118 signature_index=142
+ - 265 :  : name_index=291 signature_index=305
+ - 266 :  : ':'
+ - 267 :  : name_index=141 signature_index=142
+ - 268 :  : name_index=291 signature_index=306
+ - 269 :  : '='
+ - 270 :  : 'com/android/dx/rop/cst/CstString'
+ - 271 :  : name_index=307 signature_index=142
+ - 272 :  : 'com/android/dx/rop/cst/Constant'
+ - 273 :  : name_index=143 signature_index=142
+ - 274 :  : name_index=133 signature_index=134
+ - 275 :  : 'java/util/HashMap'
+ - 276 :  : name_index=120 signature_index=308
+ - 277 :  : 'java/lang/Object'
+ - 278 :  : 'com/android/dx/rop/type/TypeBearer'
+ - 279 :  : 'com/android/dx/util/ToHuman'
+ - 280 :  : 'java/lang/Comparable'
+ - 281 :  : 'com/android/dx/rop/code/RegisterSpec$1'
+ - 282 :  : 'com/android/dx/rop/code/LocalItem'
+ - 283 :  : 'java/lang/Throwable'
+ - 284 :  : 'set'
+ - 285 :  : 'get'
+ - 286 :  : '(Ljava/lang/Object;)Ljava/lang/Object;'
+ - 287 :  : 'toRegisterSpec'
+ - 288 :  : 'put'
+ - 289 :  : '(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;'
+ - 290 :  : '(Ljava/lang/String;)V'
+ - 291 :  : 'append'
+ - 292 :  : '(Ljava/lang/String;)Ljava/lang/StringBuilder;'
+ - 293 :  : '(I)Ljava/lang/StringBuilder;'
+ - 294 :  : 'access$100'
+ - 295 :  : '(Lcom/android/dx/rop/code/RegisterSpec$ForComparison;)I'
+ - 296 :  : 'access$200'
+ - 297 :  : '(Lcom/android/dx/rop/code/RegisterSpec$ForComparison;)Lcom/android/dx/rop/type/TypeBearer;'
+ - 298 :  : 'access$300'
+ - 299 :  : '(Lcom/android/dx/rop/code/RegisterSpec$ForComparison;)Lcom/android/dx/rop/code/LocalItem;'
+ - 300 :  : '(Lcom/android/dx/rop/type/Type;)I'
+ - 301 :  : '(Lcom/android/dx/rop/code/LocalItem;)I'
+ - 302 :  : 'isUninitialized'
+ - 303 :  : 'getInitializedType'
+ - 304 :  : '(I)V'
+ - 305 :  : '(Ljava/lang/String;)Ljava/lang/StringBuffer;'
+ - 306 :  : '(Ljava/lang/Object;)Ljava/lang/StringBuffer;'
+ - 307 :  : 'toQuoted'
+ - 308 :  : '(Lcom/android/dx/rop/code/RegisterSpec$1;)V'
+
+R11=0x00000000087fa328 is an unknown value
+R12=0x000000000a208000 is a thread
+R13=0x000000000000001a is an unknown value
+R14=0x00000000028a92b0 is an unknown value
+R15=0x00000000028aa610 is an unknown value
+
+
+Stack: [0x000000000a570000,0x000000000a670000],  sp=0x000000000a66e5b0,  free space=1017k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0xa4289]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  com.android.dx.rop.code.RegisterSpec.equals(ILcom/android/dx/rop/type/TypeBearer;Lcom/android/dx/rop/code/LocalItem;)Z+39
+j  com.android.dx.rop.code.RegisterSpec.access$500(Lcom/android/dx/rop/code/RegisterSpec;ILcom/android/dx/rop/type/TypeBearer;Lcom/android/dx/rop/code/LocalItem;)Z+4
+j  com.android.dx.rop.code.RegisterSpec$ForComparison.equals(Ljava/lang/Object;)Z+27
+j  java.util.HashMap.getEntry(Ljava/lang/Object;)Ljava/util/HashMap$Entry;+68
+j  java.util.HashMap.get(Ljava/lang/Object;)Ljava/lang/Object;+11
+j  com.android.dx.rop.code.RegisterSpec.intern(ILcom/android/dx/rop/type/TypeBearer;Lcom/android/dx/rop/code/LocalItem;)Lcom/android/dx/rop/code/RegisterSpec;+21
+J 149 C2 com.android.dx.ssa.SsaMethod.mapRegisters(Lcom/android/dx/ssa/RegisterMapper;)V (87 bytes) @ 0x00000000029fd518 [0x00000000029fd3e0+0x138]
+j  com.android.dx.ssa.back.SsaToRop.moveParametersToHighRegisters()V+84
+j  com.android.dx.ssa.back.SsaToRop.convert()Lcom/android/dx/rop/code/RopMethod;+52
+j  com.android.dx.ssa.back.SsaToRop.convertToRopMethod(Lcom/android/dx/ssa/SsaMethod;Z)Lcom/android/dx/rop/code/RopMethod;+9
+j  com.android.dx.ssa.Optimizer.optimize(Lcom/android/dx/rop/code/RopMethod;IZZLcom/android/dx/rop/code/TranslationAdvice;Ljava/util/EnumSet;)Lcom/android/dx/rop/code/RopMethod;+30
+j  com.android.dx.ssa.Optimizer.optimize(Lcom/android/dx/rop/code/RopMethod;IZZLcom/android/dx/rop/code/TranslationAdvice;)Lcom/android/dx/rop/code/RopMethod;+12
+j  com.android.dx.dex.cf.CfTranslator.processMethods(Lcom/android/dx/cf/direct/DirectClassFile;Lcom/android/dx/dex/cf/CfOptions;Lcom/android/dx/dex/DexOptions;Lcom/android/dx/dex/file/ClassDefItem;Lcom/android/dx/dex/file/DexFile;)V+265
+j  com.android.dx.dex.cf.CfTranslator.translate0(Lcom/android/dx/cf/direct/DirectClassFile;[BLcom/android/dx/dex/cf/CfOptions;Lcom/android/dx/dex/DexOptions;Lcom/android/dx/dex/file/DexFile;)Lcom/android/dx/dex/file/ClassDefItem;+120
+j  com.android.dx.dex.cf.CfTranslator.translate(Lcom/android/dx/cf/direct/DirectClassFile;[BLcom/android/dx/dex/cf/CfOptions;Lcom/android/dx/dex/DexOptions;Lcom/android/dx/dex/file/DexFile;)Lcom/android/dx/dex/file/ClassDefItem;+6
+j  com.android.dx.command.dexer.Main.translateClass([BLcom/android/dx/cf/direct/DirectClassFile;)Lcom/android/dx/dex/file/ClassDefItem;+17
+j  com.android.dx.command.dexer.Main.access$2700([BLcom/android/dx/cf/direct/DirectClassFile;)Lcom/android/dx/dex/file/ClassDefItem;+2
+j  com.android.dx.command.dexer.Main$ClassTranslatorTask.call()Lcom/android/dx/dex/file/ClassDefItem;+8
+j  com.android.dx.command.dexer.Main$ClassTranslatorTask.call()Ljava/lang/Object;+1
+j  java.util.concurrent.FutureTask.run()V+42
+j  java.util.concurrent.ThreadPoolExecutor.runWorker(Ljava/util/concurrent/ThreadPoolExecutor$Worker;)V+95
+j  java.util.concurrent.ThreadPoolExecutor$Worker.run()V+5
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x000000000a34e800 JavaThread "pool-2-thread-4" [_thread_blocked, id=8388, stack(0x000000000a970000,0x000000000aa70000)]
+  0x000000000a286800 JavaThread "pool-2-thread-3" [_thread_blocked, id=8412, stack(0x000000000a870000,0x000000000a970000)]
+  0x000000000a286000 JavaThread "pool-2-thread-2" [_thread_blocked, id=2992, stack(0x000000000a770000,0x000000000a870000)]
+  0x000000000a35a800 JavaThread "pool-3-thread-1" [_thread_blocked, id=2352, stack(0x000000000a670000,0x000000000a770000)]
+=>0x000000000a208000 JavaThread "pool-2-thread-1" [_thread_in_vm, id=6596, stack(0x000000000a570000,0x000000000a670000)]
+  0x0000000008808800 JavaThread "Service Thread" daemon [_thread_blocked, id=2040, stack(0x0000000009f70000,0x000000000a070000)]
+  0x00000000087f6800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=9012, stack(0x0000000009e70000,0x0000000009f70000)]
+  0x00000000087f4800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=9244, stack(0x0000000009d70000,0x0000000009e70000)]
+  0x00000000087f3800 JavaThread "Attach Listener" daemon [_thread_blocked, id=8668, stack(0x0000000009c70000,0x0000000009d70000)]
+  0x00000000087f0800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=8532, stack(0x0000000009b70000,0x0000000009c70000)]
+  0x00000000087b8800 JavaThread "Finalizer" daemon [_thread_blocked, id=1180, stack(0x0000000009a70000,0x0000000009b70000)]
+  0x00000000087b5000 JavaThread "Reference Handler" daemon [_thread_blocked, id=7700, stack(0x0000000009970000,0x0000000009a70000)]
+  0x0000000002860800 JavaThread "main" [_thread_blocked, id=10200, stack(0x00000000025a0000,0x00000000026a0000)]
+
+Other Threads:
+  0x00000000087b1000 VMThread [stack: 0x0000000009870000,0x0000000009970000] [id=8992]
+  0x0000000008813000 WatcherThread [stack: 0x000000000a070000,0x000000000a170000] [id=6404]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 38400K, used 8150K [0x00000000eaa80000, 0x00000000ed500000, 0x0000000100000000)
+  eden space 33280K, 9% used [0x00000000eaa80000,0x00000000ead78c58,0x00000000ecb00000)
+  from space 5120K, 99% used [0x00000000ecb00000,0x00000000ecffce18,0x00000000ed000000)
+  to   space 5120K, 0% used [0x00000000ed000000,0x00000000ed000000,0x00000000ed500000)
+ ParOldGen       total 86016K, used 1565K [0x00000000c0000000, 0x00000000c5400000, 0x00000000eaa80000)
+  object space 86016K, 1% used [0x00000000c0000000,0x00000000c0187580,0x00000000c5400000)
+ PSPermGen       total 21504K, used 5768K [0x00000000bae00000, 0x00000000bc300000, 0x00000000c0000000)
+  object space 21504K, 26% used [0x00000000bae00000,0x00000000bb3a2128,0x00000000bc300000)
+
+Card table byte_map: [0x0000000005a20000,0x0000000005c50000] byte_map_base: 0x0000000005449000
+
+Polling page: 0x0000000002530000
+
+Code Cache  [0x0000000002960000, 0x0000000002bd0000, 0x0000000005960000)
+ total_blobs=496 nmethods=260 adapters=188 free_code_cache=48159Kb largest_free_block=49287104
+
+Compilation events (10 events):
+Event: 6.524 Thread 0x00000000087f6800 nmethod 237 0x0000000002a3ba50 code [0x0000000002a3bb80, 0x0000000002a3bc18]
+Event: 6.524 Thread 0x00000000087f6800  238             com.android.dx.ssa.SsaBasicBlock::getCountPhiInsns (45 bytes)
+Event: 6.527 Thread 0x00000000087f6800 nmethod 238 0x0000000002a3aa50 code [0x0000000002a3aba0, 0x0000000002a3ad98]
+Event: 6.527 Thread 0x00000000087f6800  239             com.android.dx.ssa.back.SsaToRop::removePhiFunctions (83 bytes)
+Event: 6.551 Thread 0x00000000087f6800 nmethod 239 0x0000000002a44d50 code [0x0000000002a44f60, 0x0000000002a45af0]
+Event: 6.551 Thread 0x00000000087f6800  240   !         com.android.dx.rop.cst.StdConstantPool::getOrNull (13 bytes)
+Event: 6.552 Thread 0x00000000087f6800 nmethod 240 0x0000000002a3a7d0 code [0x0000000002a3a900, 0x0000000002a3a998]
+Event: 6.552 Thread 0x00000000087f6800  241             java.util.TreeMap::getEntry (84 bytes)
+Event: 6.572 Thread 0x00000000087f6800 nmethod 241 0x0000000002a3a410 code [0x0000000002a3a560, 0x0000000002a3a698]
+Event: 6.572 Thread 0x00000000087f6800  242             com.android.dx.ssa.SsaMethod::forEachBlockDepthFirstDom (128 bytes)
+
+GC Heap History (2 events):
+Event: 6.552 GC heap before
+{Heap before GC invocations=1 (full 0):
+ PSYoungGen      total 38400K, used 33280K [0x00000000eaa80000, 0x00000000ed500000, 0x0000000100000000)
+  eden space 33280K, 100% used [0x00000000eaa80000,0x00000000ecb00000,0x00000000ecb00000)
+  from space 5120K, 0% used [0x00000000ed000000,0x00000000ed000000,0x00000000ed500000)
+  to   space 5120K, 0% used [0x00000000ecb00000,0x00000000ecb00000,0x00000000ed000000)
+ ParOldGen       total 86016K, used 0K [0x00000000c0000000, 0x00000000c5400000, 0x00000000eaa80000)
+  object space 86016K, 0% used [0x00000000c0000000,0x00000000c0000000,0x00000000c5400000)
+ PSPermGen       total 21504K, used 5764K [0x00000000bae00000, 0x00000000bc300000, 0x00000000c0000000)
+  object space 21504K, 26% used [0x00000000bae00000,0x00000000bb3a1218,0x00000000bc300000)
+Event: 6.569 GC heap after
+Heap after GC invocations=1 (full 0):
+ PSYoungGen      total 38400K, used 5107K [0x00000000eaa80000, 0x00000000ed500000, 0x0000000100000000)
+  eden space 33280K, 0% used [0x00000000eaa80000,0x00000000eaa80000,0x00000000ecb00000)
+  from space 5120K, 99% used [0x00000000ecb00000,0x00000000ecffce18,0x00000000ed000000)
+  to   space 5120K, 0% used [0x00000000ed000000,0x00000000ed000000,0x00000000ed500000)
+ ParOldGen       total 86016K, used 1565K [0x00000000c0000000, 0x00000000c5400000, 0x00000000eaa80000)
+  object space 86016K, 1% used [0x00000000c0000000,0x00000000c0187580,0x00000000c5400000)
+ PSPermGen       total 21504K, used 5764K [0x00000000bae00000, 0x00000000bc300000, 0x00000000c0000000)
+  object space 21504K, 26% used [0x00000000bae00000,0x00000000bb3a1218,0x00000000bc300000)
+}
+
+Deoptimization events (3 events):
+Event: 6.470 Thread 0x000000000a286000 Uncommon trap: reason=unreached action=reinterpret pc=0x0000000002a12604 method=com.android.dx.rop.cst.Constant.compareTo(Lcom/android/dx/rop/cst/Constant;)I @ 12
+Event: 6.545 Thread 0x000000000a208000 Uncommon trap: reason=unreached action=reinterpret pc=0x0000000002a27024 method=com.android.dx.ssa.SCCP.simulateBranch(Lcom/android/dx/ssa/SsaInsn;)V @ 329
+Event: 6.577 Thread 0x000000000a208000 Uncommon trap: reason=unreached action=reinterpret pc=0x00000000029f576c method=com.android.dx.rop.code.RegisterSpec.equals(ILcom/android/dx/rop/type/TypeBearer;Lcom/android/dx/rop/code/LocalItem;)Z @ 24
+
+Internal exceptions (10 events):
+Event: 3.795 Thread 0x000000000a208000 Threw 0x00000000eb2d0160 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 3.796 Thread 0x000000000a208000 Threw 0x00000000eb2d3740 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 3.800 Thread 0x000000000a208000 Threw 0x00000000eb2dfcc0 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 3.801 Thread 0x000000000a208000 Threw 0x00000000eb2e5cd0 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 3.802 Thread 0x000000000a286000 Threw 0x00000000eb498970 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 3.857 Thread 0x0000000002860800 Threw 0x00000000eb3ddd40 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 3.942 Thread 0x000000000a286000 Threw 0x00000000eb5a46d0 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 4.204 Thread 0x000000000a286800 Threw 0x00000000eb6c6a08 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 4.753 Thread 0x000000000a286800 Threw 0x00000000ebacb7a8 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+Event: 6.426 Thread 0x0000000002860800 Threw 0x00000000ec47f8f8 at C:\re\jdk7u67\1368\hotspot\src\share\vm\prims\jvm.cpp:1244
+
+Events (10 events):
+Event: 6.571 Executing VM operation: RevokeBias done
+Event: 6.571 Executing VM operation: RevokeBias
+Event: 6.571 Executing VM operation: RevokeBias done
+Event: 6.571 Executing VM operation: RevokeBias
+Event: 6.571 Executing VM operation: RevokeBias done
+Event: 6.571 Executing VM operation: BulkRevokeBias
+Event: 6.571 Executing VM operation: BulkRevokeBias done
+Event: 6.577 Thread 0x000000000a208000 Uncommon trap: trap_request=0xffffffad fr.pc=0x00000000029f576c
+Event: 6.577 Thread 0x000000000a208000 DEOPT PACKING pc=0x00000000029f576c sp=0x000000000a66ea00
+Event: 6.577 Thread 0x000000000a208000 DEOPT UNPACKING pc=0x00000000029975a4 sp=0x000000000a66e778 mode 2
+
+
+Dynamic libraries:
+0x00007ff71f840000 - 0x00007ff71f873000 	C:\Program Files\Java\jdk1.7.0_67\bin\java.exe
+0x00007ffcac6f0000 - 0x00007ffcac8b2000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffcaa310000 - 0x00007ffcaa3bd000 	C:\Windows\system32\KERNEL32.DLL
+0x00007ffca9be0000 - 0x00007ffca9dbd000 	C:\Windows\system32\KERNELBASE.dll
+0x00007ffcac0f0000 - 0x00007ffcac196000 	C:\Windows\system32\ADVAPI32.dll
+0x00007ffcabe80000 - 0x00007ffcabf1d000 	C:\Windows\system32\msvcrt.dll
+0x00007ffca9fb0000 - 0x00007ffcaa00b000 	C:\Windows\system32\sechost.dll
+0x00007ffcac4c0000 - 0x00007ffcac5e6000 	C:\Windows\system32\RPCRT4.dll
+0x00007ffcaa6b0000 - 0x00007ffcaa7fe000 	C:\Windows\system32\USER32.dll
+0x00007ffcac1a0000 - 0x00007ffcac325000 	C:\Windows\system32\GDI32.dll
+0x00007ffca6290000 - 0x00007ffca6504000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.10240.16384_none_f41f7b285750ef43\COMCTL32.dll
+0x00007ffca9f70000 - 0x00007ffca9fa6000 	C:\Windows\system32\IMM32.DLL
+0x00007ffcabf20000 - 0x00007ffcac07c000 	C:\Windows\system32\MSCTF.dll
+0x000000005b9c0000 - 0x000000005ba92000 	C:\Program Files\Java\jdk1.7.0_67\jre\bin\msvcr100.dll
+0x000000005be70000 - 0x000000005c642000 	C:\Program Files\Java\jdk1.7.0_67\jre\bin\server\jvm.dll
+0x00007ffcac4b0000 - 0x00007ffcac4b8000 	C:\Windows\system32\PSAPI.DLL
+0x00007ffc9ca70000 - 0x00007ffc9ca79000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ffcac390000 - 0x00007ffcac3f9000 	C:\Windows\system32\WS2_32.dll
+0x00007ffcac0e0000 - 0x00007ffcac0e8000 	C:\Windows\system32\NSI.dll
+0x00007ffca5c70000 - 0x00007ffca5c93000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffca5950000 - 0x00007ffca597c000 	C:\Windows\SYSTEM32\WINMMBASE.dll
+0x00007ffca91c0000 - 0x00007ffca9204000 	C:\Windows\system32\cfgmgr32.dll
+0x00007ffca78e0000 - 0x00007ffca7907000 	C:\Windows\SYSTEM32\DEVOBJ.dll
+0x000000005be60000 - 0x000000005be6f000 	C:\Program Files\Java\jdk1.7.0_67\jre\bin\verify.dll
+0x000000005be30000 - 0x000000005be58000 	C:\Program Files\Java\jdk1.7.0_67\jre\bin\java.dll
+0x000000005be10000 - 0x000000005be25000 	C:\Program Files\Java\jdk1.7.0_67\jre\bin\zip.dll
+0x000000005bdf0000 - 0x000000005be09000 	C:\Program Files\Java\jdk1.7.0_67\jre\bin\net.dll
+0x00007ffca8990000 - 0x00007ffca89ed000 	C:\Windows\system32\mswsock.dll
+0x000000005bdd0000 - 0x000000005bde1000 	C:\Program Files\Java\jdk1.7.0_67\jre\bin\nio.dll
+0x00007ffc8a030000 - 0x00007ffc8a1ba000 	C:\Windows\SYSTEM32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -Djava.awt.headless=true -Xmx1024M -Dfile.encoding=windows-1252 -Duser.country=US -Duser.language=en -Duser.variant 
+java_command: com.android.dx.command.Main --dex --force-jumbo --num-threads=4 --multi-dex --output D:\My Android Projects\UCompanion\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.2.1_4833354de81dd0c0bd6a7cc47bec07a02a2c698a D:\My Android Projects\UCompanion\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.2.1\jars\classes.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\MASM\BIN;C:\Program Files (x86)\Brackets\command;C:\Program Files (x86)\Skype\Phone\
+USERNAME=dell
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 58 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 8.1 , 64 bit Build 9600 
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, erms, ht, tsc, tscinvbit, tscinv
+
+Memory: 4k page, physical 8283216k(3261924k free), swap 9593936k(3064760k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (24.65-b04) for windows-amd64 JRE (1.7.0_67-b01), built on Jul 25 2014 08:55:00 by "java_re" with unknown MS VC++:1600
+
+time: Fri Jul 29 14:40:16 2016
+elapsed time: 6 seconds
+
