@@ -26,6 +26,11 @@
                 android:id="@+id/log_out"
                 android:icon="@drawable/ic_logoff"
                 android:title="Log Out" />
+            <item
+                android:icon="@drawable/ic_theme_change"
+                android:id="@+id/theme_change"
+                android:title="Change Theme"
+                />
         </menu>
     </item>
 

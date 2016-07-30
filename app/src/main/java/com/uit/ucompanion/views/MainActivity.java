@@ -1,21 +1,24 @@
 package com.uit.ucompanion.views;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -27,6 +30,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.uit.ucompanion.R;
 import com.uit.ucompanion.adapters.MySpinnerAdapter;
+import com.uit.ucompanion.adapters.Utils;
 import com.uit.ucompanion.classes.TinyDB;
 import com.uit.ucompanion.fragments.AssignmentsFragment;
 import com.uit.ucompanion.fragments.Events;
@@ -35,7 +39,6 @@ import com.uit.ucompanion.fragments.Timetable;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -52,6 +55,7 @@ public class MainActivity extends AppCompatActivity
     FirebaseDatabase database;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
+    int themeInt;
 
     TinyDB tinyDB;
 
@@ -72,11 +76,17 @@ public class MainActivity extends AppCompatActivity
         user = firebaseAuth.getCurrentUser();
 
         super.onCreate(savedInstanceState);
+
+        Utils.onActivityCreateSetTheme(this);
+        tinyDB=new TinyDB(getApplicationContext());
+        themeInt=tinyDB.getInt("theme");
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        tinyDB = new TinyDB(getApplicationContext());
+
+        //tinyDB = new TinyDB(getApplicationContext());
 
 //        putDataToDB();
 
@@ -181,7 +191,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.time_table) {
             fragment = new Timetable();
-            setTitle("Time Table");
+            setTitle("Timetable");
             setAppBarElevation(0);
         } else if (id == R.id.events) {
             fragment = new Events();
@@ -205,6 +215,9 @@ public class MainActivity extends AppCompatActivity
             finish();
             Intent intent = new Intent(MainActivity.this, SignInActivity.class);
             startActivity(intent);
+        }
+        else if(id==R.id.theme_change){
+            showThemeDialog();
         }
 
         fm.beginTransaction().replace(R.id.frame_content, fragment).commit();
@@ -276,6 +289,12 @@ public class MainActivity extends AppCompatActivity
         View headerView = navigationView.getHeaderView(0);
         TextView tvUsername = (TextView) headerView.findViewById(R.id.tvUsername);
         TextView tvEmail = (TextView) headerView.findViewById(R.id.tvEmail);
+        if(themeInt==Utils.THEME_PINK)
+            headerView.setBackgroundColor(getResources().getColor(R.color.colorPink));
+        else if(themeInt==Utils.THEME_BLUE)
+            headerView.setBackgroundColor(getResources().getColor(R.color.colorBlue));
+        else
+            headerView.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
 
         String username = tinyDB.getString("username");
         String email = tinyDB.getString("email");
@@ -295,10 +314,38 @@ public class MainActivity extends AppCompatActivity
 
         tvUsername.setText(username + " (" + classYear + ")");
         tvEmail.setText(email);
-
+    }
+    public void showThemeDialog(){
+        DialogFragment newDialog=new ThemeDialogFragment();
+        newDialog.show(getSupportFragmentManager(),"Themes");
+    }
+    public static class ThemeDialogFragment extends DialogFragment {
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState){
+            AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+            builder.setTitle("Choose Theme")
+                    .setItems(R.array.theme_arrays,new DialogInterface.OnClickListener(){
+                        public void onClick(DialogInterface dialog, int which){
+                            TinyDB tinyDB=new TinyDB(getActivity());
+                            if(which==0){
+                                Utils.changeToTheme(getActivity(),Utils.THEME_PINK);
+                                tinyDB.putInt("theme",Utils.THEME_PINK);
+                            }
+                            else if(which==2){
+                                Utils.changeToTheme(getActivity(),Utils.THEME_DEFAULT);
+                                tinyDB.putInt("theme",Utils.THEME_DEFAULT);
+                            }
+                            else{
+                                Utils.changeToTheme(getActivity(),Utils.THEME_BLUE);
+                                tinyDB.putInt("theme", Utils.THEME_BLUE);
+                            }
+                        }
+                    });
+            return builder.create();
+        }
     }
 
-    private void putDataToDB() {
+//    private void putDataToDB() {
 //        Intent i = getIntent();
 //        if (i != null) {
 //            boolean putData = i.getBooleanExtra("putData", false);
@@ -313,5 +360,5 @@ public class MainActivity extends AppCompatActivity
 //                databaseReference.child("users").child(user.getUid()).child("section").setValue(keySection);
 //            }
 //        }
-    }
+//    }
 }

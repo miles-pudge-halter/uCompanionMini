@@ -74,4 +74,10 @@
     <string name="timetable">Timetable</string>
     <string name="year_prompt">Select Year</string>
     <string name="major_prompt">Select Major</string>
+
+    <string-array name="theme_arrays">
+        <item>Pink</item>
+        <item>Blue</item>
+        <item>Dark</item>
+    </string-array>
 </resources>

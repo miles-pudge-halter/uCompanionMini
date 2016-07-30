@@ -3,18 +3,17 @@ package com.uit.ucompanion.fragments;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.uit.ucompanion.R;
+import com.uit.ucompanion.adapters.Utils;
 import com.uit.ucompanion.adapters.ViewPagerAdapter;
 import com.uit.ucompanion.classes.SlidingTabLayout;
+import com.uit.ucompanion.classes.TinyDB;
 
 public class Timetable extends Fragment {
-
-    Toolbar toolbar;
     ViewPager pager;
     ViewPagerAdapter adapter;
     SlidingTabLayout tabs;
@@ -24,6 +23,11 @@ public class Timetable extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+        TinyDB tinyDB=new TinyDB(getActivity());
+
+        int themeInt=tinyDB.getInt("theme");
 
 
         View v = inflater.inflate(R.layout.fragment_timetable, container, false);
@@ -43,6 +47,13 @@ public class Timetable extends Fragment {
         // Assiging the Sliding Tab Layout View
         tabs = (SlidingTabLayout) v.findViewById(R.id.tabs);
         tabs.setDistributeEvenly(true);
+
+        if(themeInt==Utils.THEME_BLUE)
+            tabs.setBackgroundColor(getResources().getColor(R.color.colorBlue));
+        else if(themeInt== Utils.THEME_DEFAULT)
+            tabs.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        else
+            tabs.setBackgroundColor(getResources().getColor(R.color.colorPink));
 
         tabs.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
             @Override

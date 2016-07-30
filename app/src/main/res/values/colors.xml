@@ -7,4 +7,9 @@
     <color name="color1">#42a5f5</color>
     <color name="color2">#ec407a</color>
 
+    <color name="colorBlue">#1565c0</color>
+    <color name="colorBlueDark">#0d47a1</color>
+    <color name="colorPink">#c2185b</color>
+    <color name="colorPinkDark">#ad1457</color>
+
 </resources>
