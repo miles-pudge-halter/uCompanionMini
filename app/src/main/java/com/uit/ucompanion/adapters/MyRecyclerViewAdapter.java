@@ -371,6 +371,7 @@ public class MyRecyclerViewAdapter extends RecyclerView
             if (mDataset.get(position).getName().equals("Tutorial") || mDataset.get(position).getName().equals("Presentation")) {
                 holder.frame.setBackgroundColor(Color.parseColor("#ffffff"));
                 holder.card.setCardBackgroundColor(Color.parseColor("#333333"));
+                holder.subj_lecturer.setTextColor(Color.parseColor("#ffffff"));
                 holder.subj_code.setTextColor(Color.parseColor("#ffffff"));
                 holder.subj_room.setTextColor(Color.parseColor("#ffffff"));
                 holder.subj_time.setTextColor(Color.parseColor("#ffffff"));
