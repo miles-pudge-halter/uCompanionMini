@@ -89,11 +89,14 @@
             android:visibility="gone">
 
             <Button
+                android:textColor="@color/colorGreen"
                 android:id="@+id/btnDownload"
+                android:drawableStart="@drawable/ic_cloud_download"
+                android:drawablePadding="3dp"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Download This File" />
+                android:text="Download" />
 
         </LinearLayout>
 
