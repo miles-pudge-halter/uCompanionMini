@@ -49,6 +49,8 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
 
     ProgressDialog progressDialog;
 
+    TinyDB tinyDB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +58,8 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
 
         database = FirebaseDatabase.getInstance();
         reference = database.getReference();
+
+        tinyDB = new TinyDB(getApplicationContext());
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -86,7 +90,7 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
 
         signInButton.setSize(SignInButton.SIZE_WIDE);
         signInButton.setScopes(gso.getScopeArray());
-        setGoogleButtonText(signInButton,"Sign In With UIT Email");
+        setGoogleButtonText(signInButton, "Sign in with UIT email");
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,11 +99,12 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
         });
 
     }
-    protected void setGoogleButtonText(SignInButton signInButton, String buttonText){
-        for(int i=0;i<signInButton.getChildCount();i++){
-            View v=signInButton.getChildAt(i);
-            if(v instanceof TextView){
-                TextView tv=(TextView)v;
+
+    protected void setGoogleButtonText(SignInButton signInButton, String buttonText) {
+        for (int i = 0; i < signInButton.getChildCount(); i++) {
+            View v = signInButton.getChildAt(i);
+            if (v instanceof TextView) {
+                TextView tv = (TextView) v;
                 tv.setText(buttonText);
                 return;
             }

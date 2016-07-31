@@ -95,6 +95,7 @@ public class AssignmentsFragment extends Fragment {
                     tvMsg.setText("No Files Available!");
                 } else {
                     mRecyclerView.setVisibility(View.VISIBLE);
+                    tvMsg.setVisibility(View.GONE);
                 }
 
                 lectures = new Lectures[count];
@@ -106,7 +107,7 @@ public class AssignmentsFragment extends Fragment {
                     i++;
                 }
 
-                mAdapter = new CustomAdapter(lectures, getContext(), subject);
+                mAdapter = new CustomAdapter(lectures, getContext(), "Assignments");
                 mRecyclerView.setAdapter(mAdapter);
             }
 

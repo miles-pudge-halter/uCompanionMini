@@ -193,17 +193,21 @@ public class MainActivity extends AppCompatActivity
             fragment = new Timetable();
             setTitle("Timetable");
             setAppBarElevation(0);
+            fm.beginTransaction().replace(R.id.frame_content, fragment).commit();
         } else if (id == R.id.events) {
             fragment = new Events();
             setTitle("Events");
+            fm.beginTransaction().replace(R.id.frame_content, fragment).commit();
         } else if (id == R.id.slides) {
             fragment = new LectureSlidesFragment(spinner.getSelectedItem().toString());
             spinner.setVisibility(View.VISIBLE);
             setTitle("");
+            fm.beginTransaction().replace(R.id.frame_content, fragment).commit();
         } else if (id == R.id.assignments) {
             fragment = new AssignmentsFragment(spinner.getSelectedItem().toString());
             spinner.setVisibility(View.VISIBLE);
             setTitle("");
+            fm.beginTransaction().replace(R.id.frame_content, fragment).commit();
         } else if (id == R.id.log_out) {
             FirebaseAuth.getInstance().signOut();
 
@@ -219,8 +223,6 @@ public class MainActivity extends AppCompatActivity
         else if(id==R.id.theme_change){
             showThemeDialog();
         }
-
-        fm.beginTransaction().replace(R.id.frame_content, fragment).commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

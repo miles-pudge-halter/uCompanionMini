@@ -279,9 +279,7 @@ public class Fragment2 extends Fragment {
 
                 getActivity().finish();
                 Intent intent = new Intent(getContext(), MainActivity.class);
-                intent.putExtra("putData", true);
                 startActivity(intent);
-                return;
 
             }
         });

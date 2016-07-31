@@ -32,10 +32,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     private Lectures[] items;
     private int lastPosition = -1;
     private boolean[] markToggle;
-    private String subject;
+    private String type;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTitle, tvFileSize;
+        TextView tvTitle, tvFileSize, tvType, tvFileType;
         FrameLayout container;
         LinearLayout hidPart, clickView;
         Button btnDownload;
@@ -44,9 +44,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             super(itemView);
             container = (FrameLayout) itemView.findViewById(R.id.item_layout_container);
             tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
+            tvType = (TextView) itemView.findViewById(R.id.tvType);
             hidPart = (LinearLayout) itemView.findViewById(R.id.hidPart);
             clickView = (LinearLayout) itemView.findViewById(R.id.clickView);
             tvFileSize = (TextView) itemView.findViewById(R.id.tvFileSize);
+            tvFileType = (TextView) itemView.findViewById(R.id.tvFileType);
             btnDownload = (Button) itemView.findViewById(R.id.btnDownload);
         }
 
@@ -56,10 +58,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
     }
 
-    public CustomAdapter(Lectures[] items, Context context, String subject) {
+    public CustomAdapter(Lectures[] items, Context context, String type) {
         this.items = items;
         this.context = context;
-        this.subject = subject;
+        this.type = type;
         markToggle = new boolean[this.items.length];
 
         for (int i = 0; i < markToggle.length; i++) {
@@ -77,6 +79,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.tvTitle.setText(items[position].getTitle());
         holder.tvFileSize.setText(items[position].getSize());
+        holder.tvType.setText(type);
+        holder.tvFileType.setText(items[position].getFile_type());
 
         if (markToggle[position] == false) {
             holder.hidPart.setVisibility(View.GONE);
