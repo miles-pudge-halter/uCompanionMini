@@ -78,8 +78,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
 
         Utils.onActivityCreateSetTheme(this);
-        tinyDB=new TinyDB(getApplicationContext());
-        themeInt=tinyDB.getInt("theme");
+        tinyDB = new TinyDB(getApplicationContext());
+        themeInt = tinyDB.getInt("theme");
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -187,8 +187,6 @@ public class MainActivity extends AppCompatActivity
         FragmentManager fm = getSupportFragmentManager();
         Fragment fragment = new Fragment();
 
-        setAppBarElevation(8);
-
         if (id == R.id.time_table) {
             fragment = new Timetable();
             setTitle("Timetable");
@@ -197,31 +195,58 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.events) {
             fragment = new Events();
             setTitle("Events");
+            setAppBarElevation(8);
             fm.beginTransaction().replace(R.id.frame_content, fragment).commit();
         } else if (id == R.id.slides) {
             fragment = new LectureSlidesFragment(spinner.getSelectedItem().toString());
             spinner.setVisibility(View.VISIBLE);
             setTitle("");
+            setAppBarElevation(8);
             fm.beginTransaction().replace(R.id.frame_content, fragment).commit();
         } else if (id == R.id.assignments) {
             fragment = new AssignmentsFragment(spinner.getSelectedItem().toString());
             spinner.setVisibility(View.VISIBLE);
             setTitle("");
+            setAppBarElevation(8);
             fm.beginTransaction().replace(R.id.frame_content, fragment).commit();
         } else if (id == R.id.log_out) {
-            FirebaseAuth.getInstance().signOut();
 
-            tinyDB.remove("year");
-            tinyDB.remove("major");
-            tinyDB.remove("section");
-            tinyDB.clear();
+            setAppBarElevation(0);
 
-            finish();
-            Intent intent = new Intent(MainActivity.this, SignInActivity.class);
-            startActivity(intent);
-        }
-        else if(id==R.id.theme_change){
+            if (getTitle().equals("")) {
+                spinner.setVisibility(View.VISIBLE);
+            } else {
+                spinner.setVisibility(View.GONE);
+            }
+
+            new AlertDialog.Builder(this)
+                    .setTitle("Log Out")
+                    .setMessage("Are you sure to log out?")
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            FirebaseAuth.getInstance().signOut();
+
+                            tinyDB.remove("year");
+                            tinyDB.remove("major");
+                            tinyDB.remove("section");
+                            tinyDB.clear();
+
+                            finish();
+                            Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+                            startActivity(intent);
+                        }
+                    })
+                    .setNegativeButton("Cancel", null).show();
+        } else if (id == R.id.theme_change) {
+            setAppBarElevation(0);
             showThemeDialog();
+
+            if (getTitle().equals("")) {
+                spinner.setVisibility(View.VISIBLE);
+            } else {
+                spinner.setVisibility(View.GONE);
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -291,9 +316,9 @@ public class MainActivity extends AppCompatActivity
         View headerView = navigationView.getHeaderView(0);
         TextView tvUsername = (TextView) headerView.findViewById(R.id.tvUsername);
         TextView tvEmail = (TextView) headerView.findViewById(R.id.tvEmail);
-        if(themeInt==Utils.THEME_PINK)
+        if (themeInt == Utils.THEME_PINK)
             headerView.setBackgroundColor(getResources().getColor(R.color.colorPink));
-        else if(themeInt==Utils.THEME_BLUE)
+        else if (themeInt == Utils.THEME_BLUE)
             headerView.setBackgroundColor(getResources().getColor(R.color.colorBlue));
         else
             headerView.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
@@ -317,28 +342,28 @@ public class MainActivity extends AppCompatActivity
         tvUsername.setText(username + " (" + classYear + ")");
         tvEmail.setText(email);
     }
-    public void showThemeDialog(){
-        DialogFragment newDialog=new ThemeDialogFragment();
-        newDialog.show(getSupportFragmentManager(),"Themes");
+
+    public void showThemeDialog() {
+        DialogFragment newDialog = new ThemeDialogFragment();
+        newDialog.show(getSupportFragmentManager(), "Themes");
     }
+
     public static class ThemeDialogFragment extends DialogFragment {
         @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState){
-            AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
             builder.setTitle("Choose Theme")
-                    .setItems(R.array.theme_arrays,new DialogInterface.OnClickListener(){
-                        public void onClick(DialogInterface dialog, int which){
-                            TinyDB tinyDB=new TinyDB(getActivity());
-                            if(which==0){
-                                Utils.changeToTheme(getActivity(),Utils.THEME_PINK);
-                                tinyDB.putInt("theme",Utils.THEME_PINK);
-                            }
-                            else if(which==2){
-                                Utils.changeToTheme(getActivity(),Utils.THEME_DEFAULT);
-                                tinyDB.putInt("theme",Utils.THEME_DEFAULT);
-                            }
-                            else{
-                                Utils.changeToTheme(getActivity(),Utils.THEME_BLUE);
+                    .setItems(R.array.theme_arrays, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            TinyDB tinyDB = new TinyDB(getActivity());
+                            if (which == 0) {
+                                Utils.changeToTheme(getActivity(), Utils.THEME_PINK);
+                                tinyDB.putInt("theme", Utils.THEME_PINK);
+                            } else if (which == 2) {
+                                Utils.changeToTheme(getActivity(), Utils.THEME_DEFAULT);
+                                tinyDB.putInt("theme", Utils.THEME_DEFAULT);
+                            } else {
+                                Utils.changeToTheme(getActivity(), Utils.THEME_BLUE);
                                 tinyDB.putInt("theme", Utils.THEME_BLUE);
                             }
                         }
