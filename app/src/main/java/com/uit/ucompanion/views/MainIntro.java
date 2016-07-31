@@ -66,7 +66,7 @@ public class MainIntro extends AppCompatActivity {
     private void setUpColors() {
 
         Integer color1 = getResources().getColor(R.color.color1);
-        Integer color2 = getResources().getColor(R.color.color2);
+        Integer color2 = getResources().getColor(R.color.colorPink);
         Integer[] colors_temp = {color1, color2};
         colors = colors_temp;
 
