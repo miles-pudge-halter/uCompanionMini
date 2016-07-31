@@ -3,7 +3,6 @@ package com.uit.ucompanion.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,10 +14,6 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.uit.ucompanion.R;
 import com.uit.ucompanion.classes.TinyDB;
 import com.uit.ucompanion.objects.Lectures;
@@ -77,6 +72,35 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
+
+        TinyDB tinyDB=new TinyDB(context);
+        int themeInt=tinyDB.getInt("theme");
+
+        if(themeInt==Utils.THEME_DEFAULT){
+            holder.tvFileSize.setTextColor(context.getResources().getColor(R.color.colorAccent));
+            holder.tvFileSize.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.rounded_shape_default));
+            holder.tvFileType.setTextColor(context.getResources().getColor(R.color.colorAccent));
+            holder.tvFileType.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.rounded_shape_default));
+            holder.tvType.setTextColor(context.getResources().getColor(R.color.colorAccent));
+            holder.tvType.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.rounded_shape_default));
+        }
+        else if(themeInt==Utils.THEME_PINK){
+            holder.tvFileSize.setTextColor(context.getResources().getColor(R.color.colorPinkAccent));
+            holder.tvFileSize.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.rounded_shape_pink));
+            holder.tvFileType.setTextColor(context.getResources().getColor(R.color.colorPinkAccent));
+            holder.tvFileType.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.rounded_shape_pink));
+            holder.tvType.setTextColor(context.getResources().getColor(R.color.colorPinkAccent));
+            holder.tvType.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.rounded_shape_pink));
+        }
+        else if(themeInt==Utils.THEME_BLUE){
+            holder.tvFileSize.setTextColor(context.getResources().getColor(R.color.colorBlueAccent));
+            holder.tvFileSize.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.rounded_shape_blue));
+            holder.tvFileType.setTextColor(context.getResources().getColor(R.color.colorBlueAccent));
+            holder.tvFileType.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.rounded_shape_blue));
+            holder.tvType.setTextColor(context.getResources().getColor(R.color.colorBlueAccent));
+            holder.tvType.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.rounded_shape_blue));
+        }
+
         holder.tvTitle.setText(items[position].getTitle());
         holder.tvFileSize.setText(items[position].getSize());
         holder.tvType.setText(type);

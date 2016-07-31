@@ -9,7 +9,9 @@
 
     <color name="colorBlue">#1565c0</color>
     <color name="colorBlueDark">#0d47a1</color>
+    <color name="colorBlueAccent">#ff3f80</color>
     <color name="colorPink">#c2185b</color>
     <color name="colorPinkDark">#ad1457</color>
+    <color name="colorPinkAccent">#42a5f5</color>
 
 </resources>
