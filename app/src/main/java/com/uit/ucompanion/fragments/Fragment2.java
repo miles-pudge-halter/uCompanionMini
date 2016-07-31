@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.uit.ucompanion.R;
@@ -273,13 +275,33 @@ public class Fragment2 extends Fragment {
                 tinyDb.putString("major", keyMajor);
                 tinyDb.putString("section", keySection);
 
+                getActivity().finish();
+                Intent intent = new Intent(getContext(), MainActivity.class);
+                startActivity(intent);
+
                 ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("year").setValue(keyYear);
                 ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("major").setValue(keyMajor);
                 ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("section").setValue(keySection);
 
-                getActivity().finish();
-                Intent intent = new Intent(getContext(), MainActivity.class);
-                startActivity(intent);
+//                ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("year").setValue(keyYear, new DatabaseReference.CompletionListener() {
+//                    @Override
+//                    public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+//                        ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("major").setValue(keyMajor, new DatabaseReference.CompletionListener() {
+//                            @Override
+//                            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+//                                ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("section").setValue(keySection, new DatabaseReference.CompletionListener() {
+//                                    @Override
+//                                    public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+//                                    }
+//                                });
+//                            }
+//                        });
+//
+//                        if (databaseError == null) {
+//
+//                        }
+//                    }
+//                });
 
             }
         });

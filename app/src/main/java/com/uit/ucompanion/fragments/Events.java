@@ -33,45 +33,6 @@ public class Events extends Fragment {
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_events, container, false);
-        getActivity().setTitle("Events");
-        //super.onCreate(savedInstanceState);
-//        Utils.onActivityCreateSetTheme(this);
-//        setContentView(R.layout.fragment_events);
-//        TinyDB tinyDB=new TinyDB(getActivity());
-//        int themeInt=tinyDB.getInt("theme");
-//        if(themeInt==Utils.THEME_BLUE){
-//            if(Build.VERSION.SDK_INT>=21)
-//                getWindow().setStatusBarColor(getResources().getColor(R.color.colorBlueDark));
-//                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorBlue)));
-//        }
-//        else if(themeInt==Utils.THEME_DARK){
-//            if(Build.VERSION.SDK_INT>=21)
-//                getWindow().setStatusBarColor(getResources().getColor(R.color.colorGreyDark));
-//            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorGrey)));
-//        }
-//        else if(themeInt==Utils.THEME_TEAL){
-//            if(Build.VERSION.SDK_INT>=21)
-//                getWindow().setStatusBarColor(getResources().getColor(R.color.colorTealDark));
-//            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorTeal)));
-//        }
-//        else{
-//            if(Build.VERSION.SDK_INT>=21)
-//                getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
-//            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimary)));
-//        }
-//
-//        getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Events</font>"));
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-//        getSupportActionBar().setDisplayShowHomeEnabled(false);
-
-//        FloatingActionButton go_timetable=(FloatingActionButton) findViewById(R.id.go_timetable2);
-//        go_timetable.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent=new Intent(getApplicationContext(),Timetable.class);
-//                startActivity(intent);
-//            }
-//        });
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Events");

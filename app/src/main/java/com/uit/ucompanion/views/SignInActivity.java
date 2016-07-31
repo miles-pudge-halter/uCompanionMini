@@ -140,15 +140,6 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
         }
     }
 
-    @Override
-    public void finish() {
-        super.finish();
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_HOME);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-    }
-
     private void signIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -215,6 +206,7 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
                                             finish();
                                             Intent intent = new Intent(SignInActivity.this, MainIntro.class);
                                             startActivity(intent);
+                                            Toast.makeText(SignInActivity.this, "Signned in as " + u.getEmail(), Toast.LENGTH_SHORT).show();
                                         } else {
                                             finish();
                                             Intent intent = new Intent(SignInActivity.this, MainActivity.class);

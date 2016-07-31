@@ -16,6 +16,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -70,6 +71,8 @@ public class MainActivity extends AppCompatActivity
 
         }
 
+        System.out.println("Called MainActivity ");
+
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference();
         firebaseAuth = FirebaseAuth.getInstance();
@@ -84,6 +87,14 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        String year = tinyDB.getString("year");
+        String major = tinyDB.getString("major");
+        String section = tinyDB.getString("section");
+
+//        databaseReference.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("year").setValue(year);
+//        databaseReference.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("major").setValue(major);
+//        databaseReference.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("section").setValue(section);
 
 
         //tinyDB = new TinyDB(getApplicationContext());
@@ -152,12 +163,7 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-//            Intent intent = new Intent(Intent.ACTION_MAIN);
-//            intent.addCategory(Intent.CATEGORY_HOME);
-//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//            startActivity(intent);
-//            super.onBackPressed();
-            finish();
+            super.onBackPressed();
         }
     }
 
@@ -257,10 +263,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void finish() {
         super.finish();
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_HOME);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
     }
 
     private void declare() {

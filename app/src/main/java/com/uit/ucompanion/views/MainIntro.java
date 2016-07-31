@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,7 +21,7 @@ import com.uit.ucompanion.fragments.Fragment1;
 import com.uit.ucompanion.fragments.Fragment2;
 import com.uit.ucompanion.R;
 
-public class MainIntro extends FragmentActivity {
+public class MainIntro extends AppCompatActivity {
 
     SectionsPagerAdapter mSectionsPagerAdapter;
     ViewPager mViewPager;
@@ -33,6 +34,8 @@ public class MainIntro extends FragmentActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_startup);
+
+        System.out.println("Called MainIntro here!");
 
         if (Build.VERSION.SDK_INT < 20) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -48,14 +51,7 @@ public class MainIntro extends FragmentActivity {
 
         setUpColors();
     }
-//
-//    @Override
-//    public void onBackPressed() {
-//        Intent a = new Intent(Intent.ACTION_MAIN);
-//        a.addCategory(Intent.CATEGORY_HOME);
-//        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        startActivity(a);
-//    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -168,13 +164,5 @@ public class MainIntro extends FragmentActivity {
 
     }
 
-    @Override
-    public void finish() {
-        super.finish();
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_HOME);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-    }
 }
 
