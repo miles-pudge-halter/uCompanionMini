@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="5dp"
-
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
         card_view:cardCornerRadius="2dp"
         card_view:cardElevation="@dimen/cardview_default_elevation">
 
