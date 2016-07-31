@@ -85,19 +85,6 @@ public class Tab4 extends Fragment {
         return v;
     }
 
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        ((MyRecyclerViewAdapter) mAdapter).setOnItemClickListener(new MyRecyclerViewAdapter
-                .MyClickListener() {
-            @Override
-            public void onItemClick(int position, View v) {
-                Log.i(LOG_TAG, " Clicked on Item " + position);
-            }
-        });
-    }
-
     private ArrayList<DataObject> getDataSet() {
         ArrayList results = new ArrayList<DataObject>();
         for (int index = 0; index < 7; index++) {

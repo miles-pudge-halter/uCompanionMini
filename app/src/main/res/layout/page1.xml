@@ -3,47 +3,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:gravity="center" >
+    android:gravity="center">
 
 
     <ImageView
-        android:src="@drawable/intro_single"
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:src="@drawable/intro_single" />
 
     <TextView
-        android:textColor="@android:color/white"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Welcome to uCompanion,"
-        android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="55dp" />
+        android:layout_marginTop="55dp"
+        android:text="Welcome to uCompanion,"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/white" />
 
     <TextView
-        android:textColor="@android:color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="your daily UIT companion app."
         android:id="@+id/textView2"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:textColor="@android:color/white"
-        android:layout_marginBottom="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text=">> Swipe to get started >>"
-        android:id="@+id/textView3"
+        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true" />
+        android:text="your daily UIT companion app."
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text=">> Swipe to get started >>"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

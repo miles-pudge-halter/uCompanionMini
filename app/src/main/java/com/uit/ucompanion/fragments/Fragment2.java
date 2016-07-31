@@ -275,13 +275,14 @@ public class Fragment2 extends Fragment {
                 tinyDb.putString("major", keyMajor);
                 tinyDb.putString("section", keySection);
 
+                System.out.println("hello");
                 getActivity().finish();
-                Intent intent = new Intent(getContext(), MainActivity.class);
+                Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
 
-                ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("year").setValue(keyYear);
-                ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("major").setValue(keyMajor);
-                ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("section").setValue(keySection);
+//                ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("year").setValue(keyYear);
+//                ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("major").setValue(keyMajor);
+//                ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("section").setValue(keySection);
 
 //                ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("year").setValue(keyYear, new DatabaseReference.CompletionListener() {
 //                    @Override

@@ -84,18 +84,20 @@
             android:id="@+id/hidPart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="3dp"
             android:orientation="vertical"
             android:visibility="gone">
 
             <Button
-                android:drawableLeft="@drawable/ic_cloud_download"
-                android:textColor="@color/colorGreen"
-                android:drawablePadding="3dp"
                 android:id="@+id/btnDownload"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Download" />
+                android:drawableLeft="@drawable/ic_cloud_download"
+                android:drawablePadding="3dp"
+                android:text="Download"
+                android:textColor="@color/colorGreen" />
 
         </LinearLayout>
 

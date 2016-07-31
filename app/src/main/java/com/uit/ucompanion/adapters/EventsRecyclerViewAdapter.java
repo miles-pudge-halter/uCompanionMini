@@ -47,10 +47,6 @@ public class EventsRecyclerViewAdapter extends RecyclerView
         }
     }
 
-    public void setOnItemClickListener(MyClickListener myClickListener) {
-        this.myClickListener = myClickListener;
-    }
-
     public EventsRecyclerViewAdapter(ArrayList<EventObject> myDataset) {
         mDataset = myDataset;
     }

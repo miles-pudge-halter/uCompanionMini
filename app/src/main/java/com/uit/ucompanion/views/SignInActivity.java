@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -207,6 +208,7 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
                                             Intent intent = new Intent(SignInActivity.this, MainIntro.class);
                                             startActivity(intent);
                                             Toast.makeText(SignInActivity.this, "Signned in as " + u.getEmail(), Toast.LENGTH_SHORT).show();
+                                            Log.w(null, "Hello World!");
                                         } else {
                                             finish();
                                             Intent intent = new Intent(SignInActivity.this, MainActivity.class);
