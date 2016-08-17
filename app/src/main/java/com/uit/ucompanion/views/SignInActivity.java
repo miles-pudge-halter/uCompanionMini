@@ -227,4 +227,5 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
                 });
     }
 
+
 }
