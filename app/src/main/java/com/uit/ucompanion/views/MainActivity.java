@@ -16,6 +16,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity
         user = firebaseAuth.getCurrentUser();
 
         super.onCreate(savedInstanceState);
+        Log.d("test","1234");
 
         Utils.onActivityCreateSetTheme(this);
         tinyDB = new TinyDB(getApplicationContext());
