@@ -33,9 +33,7 @@ import com.uit.ucompanion.R;
 import com.uit.ucompanion.adapters.MySpinnerAdapter;
 import com.uit.ucompanion.adapters.Utils;
 import com.uit.ucompanion.classes.TinyDB;
-import com.uit.ucompanion.fragments.AssignmentsFragment;
 import com.uit.ucompanion.fragments.Events;
-import com.uit.ucompanion.fragments.LectureSlidesFragment;
 import com.uit.ucompanion.fragments.Timetable;
 
 import java.util.ArrayList;
@@ -76,7 +74,8 @@ public class MainActivity extends AppCompatActivity
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference();
         firebaseAuth = FirebaseAuth.getInstance();
-        user = firebaseAuth.getCurrentUser();
+
+        //user = firebaseAuth.getCurrentUser();
 
         super.onCreate(savedInstanceState);
         Log.d("test","1234");
@@ -102,20 +101,25 @@ public class MainActivity extends AppCompatActivity
 
 //        putDataToDB();
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        //FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//////
+//        if (user != null) {
+//            if (tinyDB.getString("year").equals(null) || tinyDB.getString("year").equals("")) {
+//                finish();
+//                Intent intent = new Intent(MainActivity.this, MainIntro.class);
+//                startActivity(intent);
+//            }
+//        } else {
+//            finish();
+//            Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+//            startActivity(intent);
+//        }
 
-        if (user != null) {
-            if (tinyDB.getString("year").equals(null) || tinyDB.getString("year").equals("")) {
-                finish();
-                Intent intent = new Intent(MainActivity.this, MainIntro.class);
-                startActivity(intent);
-            }
-        } else {
+        if(year.equals(null)||year.equals("")){
             finish();
-            Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+            Intent intent = new Intent(MainActivity.this, MainIntro.class);
             startActivity(intent);
         }
-
         declare();
 
         setSubjectsInSpinner();
@@ -129,29 +133,29 @@ public class MainActivity extends AppCompatActivity
 
         navigationView.setNavigationItemSelectedListener(this);
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String sub = spinner.getSelectedItem().toString();
-                Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.frame_content);
-                if (fragment != null && fragment instanceof LectureSlidesFragment) {
-                    LectureSlidesFragment lsf = new LectureSlidesFragment(sub);
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, lsf).commit();
-                } else if (fragment != null && fragment instanceof AssignmentsFragment) {
-                    AssignmentsFragment af = new AssignmentsFragment(sub);
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, af).commit();
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                String sub = spinner.getSelectedItem().toString();
+//                Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.frame_content);
+//                if (fragment != null && fragment instanceof LectureSlidesFragment) {
+//                    LectureSlidesFragment lsf = new LectureSlidesFragment(sub);
+//                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, lsf).commit();
+//                } else if (fragment != null && fragment instanceof AssignmentsFragment) {
+//                    AssignmentsFragment af = new AssignmentsFragment(sub);
+//                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, af).commit();
+//                }
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
 
         FragmentManager fm = getSupportFragmentManager();
         fm.beginTransaction().replace(R.id.frame_content, new Timetable()).commit();
-        setTitle("Time Table");
+        setTitle("Timetable");
         spinner.setVisibility(View.GONE);
         setAppBarElevation(0);
         navigationView.getMenu().getItem(0).setChecked(true);
@@ -204,18 +208,18 @@ public class MainActivity extends AppCompatActivity
             setTitle("Events");
             setAppBarElevation(8);
             fm.beginTransaction().replace(R.id.frame_content, fragment).commit();
-        } else if (id == R.id.slides) {
-            fragment = new LectureSlidesFragment(spinner.getSelectedItem().toString());
-            spinner.setVisibility(View.VISIBLE);
-            setTitle("");
-            setAppBarElevation(8);
-            fm.beginTransaction().replace(R.id.frame_content, fragment).commit();
-        } else if (id == R.id.assignments) {
-            fragment = new AssignmentsFragment(spinner.getSelectedItem().toString());
-            spinner.setVisibility(View.VISIBLE);
-            setTitle("");
-            setAppBarElevation(8);
-            fm.beginTransaction().replace(R.id.frame_content, fragment).commit();
+//        } else if (id == R.id.slides) {
+//            fragment = new LectureSlidesFragment(spinner.getSelectedItem().toString());
+//            spinner.setVisibility(View.VISIBLE);
+//            setTitle("");
+//            setAppBarElevation(8);
+//            fm.beginTransaction().replace(R.id.frame_content, fragment).commit();
+//        } else if (id == R.id.assignments) {
+//            fragment = new AssignmentsFragment(spinner.getSelectedItem().toString());
+//            spinner.setVisibility(View.VISIBLE);
+//            setTitle("");
+//            setAppBarElevation(8);
+//            fm.beginTransaction().replace(R.id.frame_content, fragment).commit();
         } else if (id == R.id.log_out) {
 
             setAppBarElevation(0);
@@ -240,7 +244,7 @@ public class MainActivity extends AppCompatActivity
                             tinyDB.clear();
 
                             finish();
-                            Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+                            Intent intent = new Intent(MainActivity.this, MainIntro.class);
                             startActivity(intent);
                         }
                     })
@@ -296,6 +300,7 @@ public class MainActivity extends AppCompatActivity
             case "Fourth":
                 subjects = getResources().getStringArray(R.array.fourth);
                 break;
+
             default:
                 subjects = getResources().getStringArray(R.array.first);
         }
@@ -321,7 +326,7 @@ public class MainActivity extends AppCompatActivity
 
         View headerView = navigationView.getHeaderView(0);
         TextView tvUsername = (TextView) headerView.findViewById(R.id.tvUsername);
-        TextView tvEmail = (TextView) headerView.findViewById(R.id.tvEmail);
+        //TextView tvEmail = (TextView) headerView.findViewById(R.id.tvEmail);
         if (themeInt == Utils.THEME_PINK)
             headerView.setBackgroundColor(getResources().getColor(R.color.colorPink));
         else if (themeInt == Utils.THEME_BLUE)
@@ -329,8 +334,8 @@ public class MainActivity extends AppCompatActivity
         else
             headerView.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
 
-        String username = tinyDB.getString("username");
-        String email = tinyDB.getString("email");
+        //String username = tinyDB.getString("username");
+        //String email = tinyDB.getString("email");
         String year = tinyDB.getString("year") + " Year";
         String major = tinyDB.getString("major");
         String section = tinyDB.getString("section");
@@ -338,15 +343,15 @@ public class MainActivity extends AppCompatActivity
         String classYear = year;
 
         if (!major.equals("")) {
-            classYear += "-" + major;
+            classYear += " - " + major;
         }
 
         if (!section.equals("")) {
-            classYear += "-" + section;
+            classYear += " - Section " + section;
         }
 
-        tvUsername.setText(username + " (" + classYear + ")");
-        tvEmail.setText(email);
+        tvUsername.setText(classYear);
+        //tvEmail.setText(email);
     }
 
     public void showThemeDialog() {

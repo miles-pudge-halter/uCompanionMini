@@ -277,9 +277,9 @@ public class Fragment2 extends Fragment {
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
 
-                ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("year").setValue(keyYear);
-                ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("major").setValue(keyMajor);
-                ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("section").setValue(keySection);
+//                ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("year").setValue(keyYear);
+//                ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("major").setValue(keyMajor);
+//                ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("section").setValue(keySection);
 
 //                ref.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("year").setValue(keyYear, new DatabaseReference.CompletionListener() {
 //                    @Override

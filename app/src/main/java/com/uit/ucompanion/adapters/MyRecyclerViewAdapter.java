@@ -7,6 +7,7 @@ package com.uit.ucompanion.adapters;
 import android.graphics.Color;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -94,7 +95,9 @@ public class MyRecyclerViewAdapter extends RecyclerView
         });
 
         Calendar c = Calendar.getInstance();
-        int hour = c.get(Calendar.HOUR);
+        int hour = c.get(Calendar.HOUR_OF_DAY);
+        //int h_o_d=c.get(Calendar.HOUR_OF_DAY);
+        //Log.d("THE HOUR OF DAY",Integer.toString(h_o_d));
         int minute = c.get(Calendar.MINUTE);
         int day = c.get(Calendar.DAY_OF_WEEK);
 
@@ -154,25 +157,25 @@ public class MyRecyclerViewAdapter extends RecyclerView
                                 }
                                 break;
                             case 3:
-                                if (hour == 0) {
+                                if (hour == 12) {
                                     param.width = 40;
                                     holder.frame.setLayoutParams(param);
                                 }
                                 break;
                             case 4:
-                                if (hour == 1) {
+                                if (hour == 13) {
                                     param.width = 40;
                                     holder.frame.setLayoutParams(param);
                                 }
                                 break;
                             case 5:
-                                if (hour == 2) {
+                                if (hour == 14) {
                                     param.width = 40;
                                     holder.frame.setLayoutParams(param);
                                 }
                                 break;
                             case 6:
-                                if (hour == 3) {
+                                if (hour == 15) {
                                     param.width = 40;
                                     holder.frame.setLayoutParams(param);
                                 }
@@ -201,25 +204,25 @@ public class MyRecyclerViewAdapter extends RecyclerView
                                 }
                                 break;
                             case 3:
-                                if (hour == 0) {
+                                if (hour == 12) {
                                     param.width = 40;
                                     holder.frame.setLayoutParams(param);
                                 }
                                 break;
                             case 4:
-                                if (hour == 1) {
+                                if (hour == 13) {
                                     param.width = 40;
                                     holder.frame.setLayoutParams(param);
                                 }
                                 break;
                             case 5:
-                                if (hour == 2) {
+                                if (hour == 14) {
                                     param.width = 40;
                                     holder.frame.setLayoutParams(param);
                                 }
                                 break;
                             case 6:
-                                if (hour == 3) {
+                                if (hour == 15) {
                                     param.width = 40;
                                     holder.frame.setLayoutParams(param);
                                 }
@@ -248,25 +251,25 @@ public class MyRecyclerViewAdapter extends RecyclerView
                                 }
                                 break;
                             case 3:
-                                if (hour == 0) {
+                                if (hour == 12) {
                                     param.width = 40;
                                     holder.frame.setLayoutParams(param);
                                 }
                                 break;
                             case 4:
-                                if (hour == 1) {
+                                if (hour == 13) {
                                     param.width = 40;
                                     holder.frame.setLayoutParams(param);
                                 }
                                 break;
                             case 5:
-                                if (hour == 2) {
+                                if (hour == 14) {
                                     param.width = 40;
                                     holder.frame.setLayoutParams(param);
                                 }
                                 break;
                             case 6:
-                                if (hour == 3) {
+                                if (hour == 15) {
                                     param.width = 40;
                                     holder.frame.setLayoutParams(param);
                                 }
@@ -295,25 +298,25 @@ public class MyRecyclerViewAdapter extends RecyclerView
                                 }
                                 break;
                             case 3:
-                                if (hour == 0) {
+                                if (hour == 12) {
                                     param.width = 40;
                                     holder.frame.setLayoutParams(param);
                                 }
                                 break;
                             case 4:
-                                if (hour == 1) {
+                                if (hour == 13) {
                                     param.width = 40;
                                     holder.frame.setLayoutParams(param);
                                 }
                                 break;
                             case 5:
-                                if (hour == 2) {
+                                if (hour == 14) {
                                     param.width = 40;
                                     holder.frame.setLayoutParams(param);
                                 }
                                 break;
                             case 6:
-                                if (hour == 3) {
+                                if (hour == 15) {
                                     param.width = 40;
                                     holder.frame.setLayoutParams(param);
                                 }
@@ -342,25 +345,25 @@ public class MyRecyclerViewAdapter extends RecyclerView
                                 }
                                 break;
                             case 3:
-                                if (hour == 0) {
+                                if (hour == 12) {
                                     param.width = 40;
                                     holder.frame.setLayoutParams(param);
                                 }
                                 break;
                             case 4:
-                                if (hour == 1) {
+                                if (hour == 13) {
                                     param.width = 40;
                                     holder.frame.setLayoutParams(param);
                                 }
                                 break;
                             case 5:
-                                if (hour == 2) {
+                                if (hour == 14) {
                                     param.width = 40;
                                     holder.frame.setLayoutParams(param);
                                 }
                                 break;
                             case 6:
-                                if (hour == 3) {
+                                if (hour == 15) {
                                     param.width = 40;
                                     holder.frame.setLayoutParams(param);
                                 }
